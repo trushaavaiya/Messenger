@@ -17,7 +17,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Screen1 from './src/Screen1';
+// import Screen1 from './src/Screen1';
+import Screen2 from './src/Screen2';
 
 
 
@@ -28,7 +29,8 @@ function App() {
       <StatusBar
         barStyle={'light-content'}
       />
-      <Screen1/>
+      {/* <Screen1/> */}
+      <Screen2/>
       
       
        
