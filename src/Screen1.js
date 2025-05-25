@@ -9,6 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 
+const { width, height } = Dimensions.get('window');
 
 export default function Screen1() {
   return (
@@ -21,6 +22,8 @@ export default function Screen1() {
             <View style={[styles.zigzag, { top: 180, left: 20 }]} />
             <View style={[styles.zigzagSmall, { bottom: 160, right: 60 }]} />
             <View style={[styles.circleGradient, { bottom: 90, right: -10 }]} />
+            <View style={[styles.orangeRing, { right:20, top: height / 2 }]} />
+            
 
       
       <View style={styles.content}>
@@ -166,6 +169,15 @@ container: {
     backgroundColor: '#8b5cf6',
     transform: [{ rotate: '-20deg' }],
     position: 'absolute',
+  },
+   orangeRing: {
+    position: 'absolute',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    borderWidth: 4,
+    borderColor: '#ff7e00',
+    backgroundColor: 'transparent',
   },
 
 
