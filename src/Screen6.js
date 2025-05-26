@@ -126,3 +126,103 @@ const MessagesScreen = () => {
 
 export default MessagesScreen;
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingTop: 20,
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#f1f1f1',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    height: 40,
+    marginBottom: 20,
+  },
+  searchInput: {
+    marginLeft: 8,
+    flex: 1,
+    fontSize: 14,
+    color: '#000',
+  },
+  tabs: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  activeTab: {
+    color: '#7D45FF',
+    fontWeight: 'bold',
+    marginRight: 16,
+    borderBottomWidth: 2,
+    borderColor: '#7D45FF',
+    paddingBottom: 4,
+  },
+  tab: {
+    color: '#888',
+    marginRight: 16,
+  },
+  messageRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  avatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    marginRight: 12,
+  },
+  avatarPlaceholder: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    backgroundColor: '#eae6f8',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  messageContent: {
+    flex: 1,
+  },
+  name: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    color: '#000',
+  },
+  message: {
+    fontSize: 13,
+    color: '#666',
+    marginTop: 2,
+  },
+  meta: {
+    alignItems: 'flex-end',
+  },
+  date: {
+    fontSize: 12,
+    color: '#999',
+  },
+  unreadBadge: {
+    backgroundColor: '#7D45FF',
+    borderRadius: 12,
+    width: 24,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 6,
+  },
+  unreadText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 12,
+  },
+});
