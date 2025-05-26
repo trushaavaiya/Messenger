@@ -128,3 +128,135 @@ export default function ChatScreen() {
   );
 }
 
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#fff" },
+
+  header: {
+    height: 60,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    justifyContent: "space-between",
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#ccc",
+  },
+  headerTitleContainer: {
+  backgroundColor: "#ccc",     
+  paddingHorizontal: 26,
+  paddingVertical: 6,
+  borderRadius: 15,            
+  justifyContent: "flex-start",
+  alignItems: "flex-start",
+  
+  },
+  headerTitle: {
+     fontSize: 18,
+      fontWeight: "bold",
+       color: "#333" 
+    },
+
+  messageContainer: {
+    marginVertical: 5,
+    padding: 12,
+    borderRadius: 20,
+  },
+  messageLeft: {
+    backgroundColor: "#f2f2f2",
+    alignSelf: "flex-start",
+    borderTopLeftRadius: 0,
+    marginVertical: 15,
+  },
+  messageRight: {
+    backgroundColor: "#7D45FF",
+    alignSelf: "flex-end",
+    borderTopRightRadius: 0,
+    marginVertical: 15,
+  },
+  messageText: {
+    fontSize: 16,
+    color: "#333",
+  },
+  messageTextRight: {
+    color: "white",
+  },
+
+  dateSeparator: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginHorizontal: 20,
+    marginVertical: 10,
+  },
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: "#ccc",
+  },
+  dateText: {
+    marginHorizontal: 8,
+    color: "#666",
+    fontWeight: "600",
+  },
+
+  messageInputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderTopWidth: 1,
+    borderTopColor: "#ddd",
+  },
+  addButton: {
+    padding: 6,
+    marginRight: 6,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: "#7D45FF",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  messageInput: {
+    flex: 1,
+    fontSize: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    backgroundColor: "#f2f2f2",
+    marginRight: -45,
+    
+  },
+  sendButton: {
+    backgroundColor: "#7D45FF",
+    borderRadius: 1,
+    width: 40,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+    borderEndEndRadius:20,
+    borderBottomLeftRadius:20,
+    borderStartStartRadius:20,
+    paddingRight:0
+  },
+
+  inputContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    paddingVertical: 12,
+    borderTopWidth: 1,
+    borderTopColor: "#ddd",
+  },
+  iconButton: {
+    alignItems: "center",
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 20,
+  },
+  iconLabel: {
+    fontSize: 10,
+    color: "#555",
+    marginTop: 4,
+  },
+  iconButtonActive: {
+    backgroundColor: "#7D45FF",
+  },
+});
+
