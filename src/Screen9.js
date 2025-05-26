@@ -75,3 +75,115 @@ const MessageApp = () => {
     </View>
   );
 };
+export default MessageApp;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 15,
+    paddingTop: 10,
+    backgroundColor: '#fff',
+  },
+  header: {
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#f2f2f2',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  searchInput: {
+    marginLeft: 10,
+    flex: 1,
+  },
+  tabs: {
+    flexDirection: 'row',
+    marginTop: 15,
+  },
+  tab: {
+    marginRight: 20,
+    fontSize: 14,
+    color: '#888',
+  },
+  tabActive: {
+    color: '#4B1EFF',
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+  },
+  banner: {
+    backgroundColor: '#FFF2DB',
+    borderRadius: 12,
+    padding: 25,
+    marginTop: 25,
+  },
+  bannerText: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    marginBottom: 2,
+  },
+  bannerSubText: {
+    fontSize: 13,
+    color: '#666',
+  },
+  bannerActions: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginTop: 10,
+  },
+  changeText: {
+    color: '#6A35FF',
+    marginRight: 20,
+    fontWeight: 'bold',
+  },
+  notNowText: {
+    color: '#999',
+  },
+  messageList: {
+    marginTop: 20,
+    flex: 1,
+  },
+  messageItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 25,
+  },
+  avatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 10,
+    marginRight: 10,
+  },
+  avatarPlaceholder: {
+    width: 60,
+    height: 60,
+    borderRadius: 10,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  messageTextContainer: {
+    flex: 1,
+  },
+  messageName: {
+    fontWeight: 'bold',
+  },
+  messagePreview: {
+    color: '#777',
+  },
+  messageDate: {
+    fontSize: 12,
+    color: '#999',
+  },
+});
