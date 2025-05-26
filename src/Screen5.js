@@ -135,3 +135,114 @@ const MessagesScreen = () => {
     </View>
   );
 };
+export default MessagesScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingTop: 30,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  searchBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f0f0f0',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    height: 36,
+    marginBottom: 20,
+  },
+  searchIcon: {
+    marginRight: 8,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 14,
+    color: '#000',
+  },
+  tabs: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  activeTab: {
+    marginRight: 20,
+    fontWeight: 'bold',
+    color: '#7D45FF',
+    borderBottomWidth: 2,
+    borderColor: '#7D45FF',
+    paddingBottom: 4,
+  },
+  tab: {
+    marginRight: 20,
+    color: '#888',
+  },
+  item: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  avatarContainer: {
+    marginRight: 12,
+  },
+  avatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 10,
+  },
+  placeholderAvatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 10,
+    backgroundColor: '#f0f0f0',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  messageContent: {
+    flex: 1,
+  },
+  name: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    color: '#000',
+  },
+  message: {
+    fontSize: 13,
+    color: '#666',
+    marginTop: 2,
+  },
+  meta: {
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    height: 60,
+  },
+  date: {
+    fontSize: 12,
+    color: '#999',
+  },
+  unreadBadge: {
+    backgroundColor: '#7D45FF',
+    borderRadius: 12,
+    width: 24,
+    height: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 4,
+  },
+  unreadText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  rightTrashIcon: {
+    marginTop: 8,
+  },
+});
