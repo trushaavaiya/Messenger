@@ -19,7 +19,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 // import Screen1 from './src/Screen1';
 //import Screen2 from './src/Screen2';
-import Screen3 from './src/Screen3';
+// import Screen3 from './src/Screen3';
+import Screen4 from './src/Screen4';
 
 
 
@@ -32,7 +33,8 @@ function App() {
       />
       {/* <Screen1/> */}
       {/* <Screen2/> */}
-      <Screen3/>
+      {/* <Screen3/> */}
+      <Screen4/>
       
       
        
