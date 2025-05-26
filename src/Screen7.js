@@ -133,3 +133,105 @@ const ChatScreen = () => {
 };
 
 export default ChatScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    paddingTop: 50,
+    paddingBottom: 12,
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  nameBox: {
+    backgroundColor: '#f0f0f0', // light grey
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 10,
+  },
+  backButton: {
+  marginRight: 12,
+  padding: 4,
+},
+header: {
+  paddingTop: 50,
+  paddingBottom: 12,
+  paddingHorizontal: 16,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+},
+
+  title: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#000',
+  },
+  messageContainer: {
+    marginVertical: 8,
+    flexDirection: 'row',
+  },
+  leftAlign: {
+    justifyContent: 'flex-start',
+  },
+  rightAlign: {
+    justifyContent: 'flex-end',
+  },
+  sentBubble: {
+    padding: 12,
+    borderRadius: 18,
+    maxWidth: '80%',
+    borderBottomRightRadius: 0,
+  },
+  sentText: {
+    color: '#fff',
+    fontSize: 14,
+  },
+  receivedBubble: {
+    backgroundColor: '#f1f1f1',
+    padding: 12,
+    borderRadius: 18,
+    maxWidth: '80%',
+    borderBottomLeftRadius: 0,
+  },
+  receivedText: {
+    fontSize: 14,
+    color: '#000',
+  },
+  dateSeparator: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 16,
+    justifyContent: 'center',
+  },
+  separatorLine: {
+    height: 1,
+    backgroundColor: '#ccc',
+    flex: 1,
+    marginHorizontal: 10,
+  },
+  dateText: {
+    color: '#aaa',
+    fontSize: 12,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    padding: 15,
+    alignItems: 'center',
+    borderTopWidth: 0,
+    borderTopColor: '#eee',
+    gap: 8,
+  },
+  textInput: {
+    flex: 1,
+    backgroundColor: '#f1f1f1',
+    borderRadius: 20,
+    paddingHorizontal: 28,
+    fontSize: 14,
+    height: 40,
+    color: '#000',
+  },
+});
