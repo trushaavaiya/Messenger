@@ -182,4 +182,99 @@ const ChatListScreen = () => {
 
 export default ChatListScreen;
 
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    height: 60,
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#f1f1f1',
+    marginHorizontal: 16,
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    marginVertical: 10,
+    height: 40,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: '#000',
+  },
+  tabsContainer: {
+    flexDirection: 'row',
+    marginHorizontal: 16,
+    justifyContent: 'flex-start',
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  tab: {
+    alignItems: 'center',
+    paddingBottom: 8,
+    flex: 1,
+  },
+  tabText: {
+    color: '#999',
+    fontWeight: '600',
+  },
+  activeTabText: {
+    color: '#7D45FF',
+    fontWeight: '700',
+  },
+  tabUnderline: {
+    marginTop: 4,
+    height: 3,
+    width: '60%',
+    backgroundColor: '#7D45FF',
+    borderRadius: 2,
+  },
+  listItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  avatarContainer: {
+    marginRight: 12,
+  },
+  avatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+  },
+  placeholderAvatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    backgroundColor: '#f1f1f1',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  messageContainer: {
+    flex: 1,
+  },
+  name: {
+    fontWeight: '600',
+    color: '#000',
+  },
+  unreadName: {
+    color: '#7D45FF',
+  },
+  lastMessage: {
+    color: '#999',
+    marginTop: 2,
+  },
+  dateText: {
+    color: '#bbb',
+    marginLeft: 8,
+  },
+});
