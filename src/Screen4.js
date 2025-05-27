@@ -234,7 +234,11 @@ const styles = StyleSheet.create({
     borderEndEndRadius:20,
     borderBottomLeftRadius:20,
     borderStartStartRadius:20,
-    paddingRight:0
+    //borderEndStartRadius:20,
+    //borderTopRightRadius:20,
+    borderBottomLeftRadius:20,
+    paddingRight:0,
+    transform: [{rotate: '-45deg'}],
   },
 
   inputContainer: {
