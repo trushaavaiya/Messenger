@@ -25,7 +25,8 @@ import {
 // import Screen6 from './src/Screen6';
 // import Screen7 from './src/Screen7';
 // import Screen8 from './src/Screen8';
-import Screen9 from './src/Screen9';
+// import Screen9 from './src/Screen9';
+import Screen10 from './src/Screen10';
 
 
 
@@ -44,7 +45,8 @@ function App() {
       {/* <Screen6/> */}
       {/* <Screen7/> */}
       {/* <Screen8/> */}
-      <Screen9/>
+      {/* <Screen9/> */}
+      <Screen10/>
       
 
       
