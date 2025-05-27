@@ -97,3 +97,50 @@ const SettingsScreen = () => {
 };
 
 export default SettingsScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 50,
+    backgroundColor: '#fff',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: '500',
+    marginLeft: 20,
+  },
+  sectionHeader: {
+    color: '#6A35FF',
+    fontWeight: 'bold',
+    fontSize: 13,
+    marginBottom: 10,
+    marginTop: 25,
+  },
+  settingRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 20,
+    borderBottomWidth: 0.5,
+    borderColor: '#eee',
+  },
+  icon: {
+    width: 30,
+  },
+  settingTextContainer: {
+    flex: 1,
+    marginLeft: 10,
+  },
+  settingTitle: {
+    fontSize: 16,
+    color: '#333',
+  },
+  settingSubtitle: {
+    fontSize: 13,
+    color: '#999',
+  },
+});
