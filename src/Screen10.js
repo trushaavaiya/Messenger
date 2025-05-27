@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   tabActive: {
     color: '#4B1EFF',
     fontWeight: 'bold',
-    textDecorationLine: 'underline',
+    textDecorationLine: "underline",
   },
   banner: {
     backgroundColor: '#FFF2DB',
