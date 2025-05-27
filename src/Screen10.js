@@ -119,3 +119,175 @@ const MessageApp = () => {
     </View>
   );
 };
+
+
+export default MessageApp;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 15,
+    paddingTop: 10,
+    backgroundColor: '#fff',
+  },
+  header: {
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#f2f2f2',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  searchInput: {
+    marginLeft: 10,
+    flex: 1,
+  },
+  tabs: {
+    flexDirection: 'row',
+    marginTop: 15,
+  },
+  tab: {
+    marginRight: 20,
+    fontSize: 14,
+    color: '#888',
+  },
+  tabActive: {
+    color: '#4B1EFF',
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+  },
+  banner: {
+    backgroundColor: '#FFF2DB',
+    borderRadius: 12,
+    padding: 25,
+    marginTop: 25,
+  },
+  bannerText: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    marginBottom: 2,
+  },
+  bannerSubText: {
+    fontSize: 13,
+    color: '#666',
+  },
+  bannerActions: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginTop: 10,
+  },
+  changeText: {
+    color: '#6A35FF',
+    marginRight: 20,
+    fontWeight: 'bold',
+  },
+  notNowText: {
+    color: '#999',
+  },
+  messageList: {
+    marginTop: 20,
+    flex: 1,
+  },
+  messageItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 25,
+  },
+  avatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 10,
+    marginRight: 10,
+  },
+  avatarPlaceholder: {
+    width: 60,
+    height: 60,
+    borderRadius: 10,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  messageTextContainer: {
+    flex: 1,
+  },
+  messageName: {
+    fontWeight: 'bold',
+  },
+  messagePreview: {
+    color: '#777',
+  },
+  messageDate: {
+    fontSize: 12,
+    color: '#999',
+  },
+
+  modalBackground: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popup: {
+    width: 300,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    overflow: 'hidden',
+    elevation: 10,
+  },
+  headerSection: {
+    backgroundColor: '#F3EFFE',
+    alignItems: 'center',
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  popupImage: {
+    width: 60,
+    height: 60,
+    marginBottom: 10,
+  },
+  popupTitle: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#333',
+    marginBottom: 5,
+  },
+  popupSubtitle: {
+    textAlign: 'center',
+    color: '#666',
+    fontSize: 14,
+  },
+  stars: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginVertical: 15,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  rateButton: {
+    backgroundColor: '#5A31F4',
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  rateButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+});
