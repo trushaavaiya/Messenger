@@ -61,3 +61,63 @@ const BackupRestoreScreen = () => {
     </View>
   );
 };
+export default BackupRestoreScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#fff',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 25,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#000',
+    marginLeft: 10,
+  },
+  section: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 20,
+  },
+  textContainer: {
+    marginLeft: 15,
+    flex: 1,
+  },
+  heading: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000',
+  },
+  subtext: {
+    fontSize: 14,
+    color: '#777',
+  },
+  progressRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  progressBarBackground: {
+    flex: 1,
+    height: 6,
+    backgroundColor: '#ddd',
+    borderRadius: 4,
+    marginRight: 10,
+  },
+  progressBarFill: {
+    height: 6,
+    backgroundColor: '#7B4DFF',
+    borderRadius: 4,
+  },
+  footerText: {
+    marginTop: 40,
+    fontSize: 13,
+    color: '#999',
+  },
+});
