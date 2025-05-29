@@ -9,6 +9,8 @@ import {
   Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Swipeable } from 'react-native-gesture-handler';
+
 
 const messages = [
   {
@@ -67,48 +69,51 @@ const messages = [
 ];
 
 const MessagesScreen = () => {
+  const renderRightActions = (item) => (
+    <TouchableOpacity
+      style={styles.deleteAction}
+      onPress={() => console.log('Delete message:', item.name)}
+    >
+      <Icon name="trash-outline" size={24} color="red" />
+    </TouchableOpacity>
+  );
   const renderItem = ({ item }) => {
-    const isDavidTan = item.name === 'David Tan';
-
     return (
-      <View style={styles.item}>
-        <View style={styles.avatarContainer}>
-          {item.avatar ? (
-            <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
-          ) : (
-            <View style={styles.placeholderAvatar}>
-              <Icon name="person" size={24} color="#aaa" />
-            </View>
-          )}
-        </View>
+      <Swipeable renderRightActions={() => renderRightActions(item)} >
+        <View style={styles.item}>
+          <View style={styles.avatarContainer}>
+            {item.avatar ? (
+              <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
+            ) : (
+              <View style={styles.placeholderAvatar}>
+                <Icon name="person" size={24} color="#aaa" />
+              </View>
+            )}
+          </View>
 
-        <View style={styles.messageContent}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.message}>{item.message}</Text>
-        </View>
+          <View style={styles.messageContent}>
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.message}>{item.message}</Text>
+          </View>
 
-        <View style={styles.meta}>
-          <Text style={styles.date}>{item.date}</Text>
-          {item.unreadCount > 0 && (
-            <View style={styles.unreadBadge}>
-              <Text style={styles.unreadText}>{item.unreadCount}</Text>
-            </View>
-          )}
-          {isDavidTan && (
-            <TouchableOpacity style={styles.rightTrashIcon}>
-              <Icon name="trash-outline" size={18} color="#888" />
-            </TouchableOpacity>
-          )}
+          <View style={styles.meta}>
+            <Text style={styles.date}>{item.date}</Text>
+            {item.unreadCount > 0 && (
+              <View style={styles.unreadBadge}>
+                <Text style={styles.unreadText}>{item.unreadCount}</Text>
+              </View>
+            )}
+          </View>
         </View>
-      </View>
+      </Swipeable>
     );
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon name="menu-outline" size={28} color="#000" />
-        <Icon name="person-add-outline" size={28} color="#000" />
+        <Icon name="menu-outline" size={25} color="#000" />
+        <Icon name="person-add-outline" size={25} color="#000" />
       </View>
 
       <View style={styles.searchBar}>
@@ -230,7 +235,7 @@ const styles = StyleSheet.create({
   },
   unreadBadge: {
     backgroundColor: '#7D45FF',
-    borderRadius: 12,
+    borderRadius: 10,
     width: 24,
     height: 24,
     alignItems: 'center',
@@ -244,5 +249,14 @@ const styles = StyleSheet.create({
   },
   rightTrashIcon: {
     marginTop: 8,
+  },
+  deleteAction: {
+    backgroundColor: 'lightgrey',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 60,
+    height: 80,
+    borderRadius: 5,
+    
   },
 });
