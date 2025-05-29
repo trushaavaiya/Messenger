@@ -20,7 +20,7 @@ import {
 // import Screen1 from './src/Screen1';
 //import Screen2 from './src/Screen2';
 // import Screen3 from './src/Screen3';
-// import Screen4 from './src/Screen4';
+import Screen4 from './src/Screen4';
 // import Screen5 from './src/Screen5';
 // import Screen6 from './src/Screen6';
 // import Screen7 from './src/Screen7';
@@ -30,7 +30,6 @@ import {
 // import Screen11 from './src/Screen11';
 import Screen12 from './src/Screen12';
 // import Screen13 from './src/Screen13';
-
 
 
 
@@ -44,7 +43,7 @@ function App() {
       {/* <Screen1/> */}
       {/* <Screen2/> */}
       {/* <Screen3/> */}
-      {/* <Screen4/> */}
+      <Screen4/>
       {/* <Screen5/> */}
       {/* <Screen6/> */}
       {/* <Screen7/> */}

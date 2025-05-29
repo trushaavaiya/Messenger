@@ -47,7 +47,7 @@ export default function ChatScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity>
-            <Icon name="arrow-back" size={24} color="#333" />
+            <Icon name="chevron-back" size={24} color="#333" />
         </TouchableOpacity>
 
         <View style={styles.headerTitleContainer}>
@@ -82,21 +82,24 @@ export default function ChatScreen() {
         inverted={false}
       />
 
-      <View style={styles.messageInputContainer}>
-        <TouchableOpacity style={styles.addButton}>
-          <Icon name="add" size={24} color="#7D45FF" />
-        </TouchableOpacity>
-        <TextInput
-          style={styles.messageInput}
-          placeholder="Type your message here"
-          placeholderTextColor="#999"
-          value={input}
-          onChangeText={setInput}
-        />
-        <TouchableOpacity style={styles.sendButton}>
-          <Icon name="send" size={22} color="white" />
-        </TouchableOpacity>
-      </View>
+      
+
+       <View style={styles.messageInputContainer}>
+              <View style={styles.inputWithIcon}>
+                <Icon name="add" size={24} color="#FFA500" style={styles.addInsideIcon} />
+                <TextInput
+                  style={styles.messageInput}
+                  placeholder="Type your message here"
+                  placeholderTextColor="#ccc"
+                  value={input}
+                  onChangeText={setInput}
+                />
+                <TouchableOpacity style={styles.sendButton}>
+                  <Icon name="send" size={22} color="white" />
+                </TouchableOpacity>
+              </View>
+            </View>
+      
 
       <View style={styles.inputContainer}>
         <TouchableOpacity style={styles.iconButton}>
@@ -129,7 +132,9 @@ export default function ChatScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff" },
+  container: { flex: 1,
+     backgroundColor: "#fff"
+    },
 
   header: {
     height: 60,
@@ -200,59 +205,59 @@ const styles = StyleSheet.create({
   messageInputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderTopWidth: 1,
-    borderTopColor: "#ddd",
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    borderTopWidth: 0,
+    borderTopColor: "#333",
+    backgroundColor: "white",
   },
-  addButton: {
-    padding: 6,
-    marginRight: 6,
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: "#7D45FF",
+  inputWithIcon: {
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#f2f2f2",
+    borderRadius: 20,
+    flex: 1,
+    marginRight: 8,
+    paddingHorizontal: 12,
+    borderRadius:15,
+  },
+  addInsideIcon: {
+    marginRight: 8,
   },
   messageInput: {
     flex: 1,
     fontSize: 16,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    borderRadius: 20,
-    backgroundColor: "#f2f2f2",
-    marginRight: -45,
-    
+    color: "#fff",
+    paddingVertical: 12,
   },
   sendButton: {
     backgroundColor: "#7D45FF",
-    borderRadius: 1,
-    width: 40,
-    height: 40,
+    borderRadius: 20,
+    width: 35,
+    height: 35,
     alignItems: "center",
     justifyContent: "center",
-    borderEndEndRadius:20,
-    borderBottomLeftRadius:20,
-    borderStartStartRadius:20,
-    //borderEndStartRadius:20,
-    //borderTopRightRadius:20,
-    borderBottomLeftRadius:20,
-    paddingRight:0,
-    transform: [{rotate: '-45deg'}],
+    borderTopRightRadius: 0,
+    transform: [{ rotate: "-0deg" }],
   },
-
   inputContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
     paddingVertical: 12,
-    borderTopWidth: 1,
-    borderTopColor: "#ddd",
+    borderTopWidth: 0,
+    borderTopColor: "#333",
+    backgroundColor: "white",
   },
   iconButton: {
     alignItems: "center",
     paddingVertical: 6,
     paddingHorizontal: 10,
-    borderRadius: 20,
+    borderRadius: 10,
+  },
+  iconLabel: {
+    fontSize: 10,
+    color: "#fff",
+    marginTop: 4,
   },
   iconLabel: {
     fontSize: 10,
