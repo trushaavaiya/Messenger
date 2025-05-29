@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -8,10 +8,12 @@ import {
   StyleSheet,
   Image,
   useColorScheme,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Swipeable } from 'react-native-gesture-handler';
 
-const messages = [
+const initialMessages = [
   {
     id: '1',
     name: '+91 87444 87846',
@@ -60,7 +62,7 @@ const messages = [
   {
     id: '7',
     name: 'Julia Ambriz',
-    message: 'send me all picsin last night in ws.',
+    message: 'send me all pics in last night in ws.',
     date: '03, Dec',
     unreadCount: 0,
     avatar: null,
@@ -82,42 +84,92 @@ const MessagesScreen = () => {
     tabInactive: isDarkMode ? '#aaa' : '#888',
   };
 
+  const [messages, setMessages] = useState(initialMessages);
+  const swipeableRefs = useRef(new Map());
+
+  const closeAllSwipeables = () => {
+    swipeableRefs.current.forEach((ref) => {
+      if (ref && ref.close) {
+        ref.close();
+      }
+    });
+  };
+
+  const handleDelete = (id) => {
+    Alert.alert(
+      'Delete Message',
+      'Are you sure you want to delete this message?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: () => {
+            setMessages((prevMessages) =>
+              prevMessages.filter((message) => message.id !== id)
+            );
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
+
+  const renderRightActions = (item) => (
+    <TouchableOpacity
+      style={styles.deleteButtonSwipe}
+      onPress={() => handleDelete(item.id)}
+    >
+      <Icon name="trash-outline" size={24} color="#fff" />
+    </TouchableOpacity>
+  );
+
   const renderItem = ({ item }) => {
-    const isDavidTan = item.name === 'David Tan';
-
     return (
-      <View style={[styles.item, { borderBottomColor: theme.border }]}>
-        <View style={styles.avatarContainer}>
-          {item.avatar ? (
-            <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
-          ) : (
-            <View style={[styles.placeholderAvatar, { backgroundColor: theme.placeholder }]}>
-              <Icon name="person" size={24} color={theme.secondaryText} />
-            </View>
-          )}
-        </View>
+      <Swipeable
+        ref={(ref) => {
+          if (ref && item.id) {
+            swipeableRefs.current.set(item.id, ref);
+          }
+        }}
+        renderRightActions={() => renderRightActions(item)}
+        onSwipeableWillOpen={() => {
+          // Close other swipeables when one is opened
+          swipeableRefs.current.forEach((ref, key) => {
+            if (key !== item.id && ref && ref.close) {
+              ref.close();
+            }
+          });
+        }}
+      >
+        <View style={[styles.item, { borderBottomColor: theme.border, backgroundColor: theme.background }]}>
+          <View style={styles.avatarContainer}>
+            {item.avatar ? (
+              <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
+            ) : (
+              <View style={[styles.placeholderAvatar, { backgroundColor: theme.placeholder }]}>
+                <Icon name="person" size={24} color={theme.secondaryText} />
+              </View>
+            )}
+          </View>
 
-        <View style={styles.messageContent}>
-          <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
-          <Text style={[styles.message, { color: theme.secondaryText }]} numberOfLines={1}>
-            {item.message}
-          </Text>
-        </View>
+          <View style={styles.messageContent}>
+            <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
+            <Text style={[styles.message, { color: theme.secondaryText }]} numberOfLines={1}>
+              {item.message}
+            </Text>
+          </View>
 
-        <View style={styles.meta}>
-          <Text style={[styles.date, { color: theme.secondaryText }]}>{item.date}</Text>
-          {item.unreadCount > 0 && (
-            <View style={styles.unreadBadge}>
-              <Text style={styles.unreadText}>{item.unreadCount}</Text>
-            </View>
-          )}
-          {isDavidTan && (
-            <TouchableOpacity style={styles.deleteButton}>
-              <Icon name="trash" size={18} color="#fff" />
-            </TouchableOpacity>
-          )}
+          <View style={styles.meta}>
+            <Text style={[styles.date, { color: theme.secondaryText }]}>{item.date}</Text>
+            {item.unreadCount > 0 && (
+              <View style={styles.unreadBadge}>
+                <Text style={styles.unreadText}>{item.unreadCount}</Text>
+              </View>
+            )}
+          </View>
         </View>
-      </View>
+      </Swipeable>
     );
   };
 
@@ -254,9 +306,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
   },
-  deleteButton: {
+  deleteButtonSwipe: {
     backgroundColor: '#FF3B30',
-    borderRadius: 20,
-    padding: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 60,
+    marginVertical: 8,
+    borderRadius: 10,
   },
 });
