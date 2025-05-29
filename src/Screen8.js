@@ -19,7 +19,7 @@ const data = [
     lastMessage: 'okay, i will manage',
     date: '08, Dec',
     avatar: null,
-    unread: true,
+    unread: false,
   },
   {
     id: '2',
@@ -247,13 +247,13 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   avatar: {
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
     borderRadius: 10,
   },
   placeholderAvatar: {
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
     borderRadius: 10,
     backgroundColor: '#f1f1f1',
     justifyContent: 'center',
@@ -274,7 +274,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   dateText: {
-    color: '#bbb',
-    marginLeft: 8,
+    color: 'grey',
+    marginLeft: 10,
+    fontSize:12
   },
 });
