@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+
 const SettingsScreen = () => {
   const [pureBlackMode, setPureBlackMode] = useState(false);
   const [useSystemFont, setUseSystemFont] = useState(true);
@@ -17,7 +18,7 @@ const SettingsScreen = () => {
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity>
-          <Icon name="arrow-left" size={24} />
+          <Icon name="chevron-left" size={30} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Settings</Text>
       </View>
@@ -25,7 +26,7 @@ const SettingsScreen = () => {
       <Text style={styles.sectionHeader}>Appearance</Text>
 
       <View style={styles.settingRow}>
-        <Icon name="gavel" size={22} color="#888" style={styles.icon} />
+        <Icon name="gavel" size={24} color="#888" style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Night Mode</Text>
           <Text style={styles.settingSubtitle}>System</Text>
@@ -33,7 +34,7 @@ const SettingsScreen = () => {
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="weather-night" size={22} color="#888" style={styles.icon} />
+        <Icon name="weather-night" size={24} color="#888" style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Pure black night mode</Text>
         </View>
@@ -46,7 +47,7 @@ const SettingsScreen = () => {
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="format-size" size={22} color="#888" style={styles.icon} />
+        <Icon name="format-size" size={24} color="#888" style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Font size</Text>
           <Text style={styles.settingSubtitle}>Normal</Text>
@@ -54,7 +55,7 @@ const SettingsScreen = () => {
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="format-text" size={22} color="#888" style={styles.icon} />
+        <Icon name="format-text" size={24} color="#888" style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Use system font</Text>
         </View>
@@ -69,14 +70,14 @@ const SettingsScreen = () => {
       <Text style={styles.sectionHeader}>General</Text>
 
       <View style={styles.settingRow}>
-        <Icon name="bell-outline" size={22} color="#888" style={styles.icon} />
+        <Icon name="bell-outline" size={24} color="#888" style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Notifications</Text>
         </View>
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="timer-outline" size={22} color="#888" style={styles.icon} />
+        <Icon name="timer-outline" size={24} color="#888" style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Delayed Sending</Text>
           <Text style={styles.settingSubtitle}>No delay</Text>
@@ -84,7 +85,7 @@ const SettingsScreen = () => {
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="gesture-swipe-horizontal" size={22} color="#888" style={styles.icon} />
+        <Icon name="gesture-swipe-horizontal" size={24} color="#888" style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Swipe actions</Text>
           <Text style={styles.settingSubtitle}>
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 13,
     marginBottom: 10,
-    marginTop: 25,
+    marginTop: 10,
   },
   settingRow: {
     flexDirection: 'row',
