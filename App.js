@@ -16,7 +16,6 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 // import Screen1 from './src/Screen1';
 //import Screen2 from './src/Screen2';
@@ -36,11 +35,12 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 // import Screen14 from './src/Screen14';
 // import Screen15 from './src/Screen15';
 // import Screen16 from './src/Screen16';
-import Screen17 from './src/Screen17';
+// import Screen17 from './src/Screen17';
+import Screen18 from './src/Screen18';
 
 function App() {
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
+    <GestureHandlerRootView style={styles.container}>
       <View style={{flex: 1}}>
         <StatusBar barStyle={'light-content'} />
         {/* <Screen1/> */}
@@ -56,18 +56,20 @@ function App() {
         {/* <Screen11/> */}
         {/* <Screen12/> */}
         {/* <Screen13/> */}
-        {/* <Screen12/> */}
-        {/* <Screen13/> */}
         {/* <Screen14/> */}
         {/* <Screen15/> */}
         {/* <Screen16/>  */}
-        <Screen17 />
+        {/* <Screen17/>  */}
+        <Screen18 />
       </View>
     </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
