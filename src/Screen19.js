@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
   },
   header: {
-    paddingTop: 50,
+    paddingTop: 20,
     paddingBottom: 12,
     paddingHorizontal: 16,
     flexDirection: 'row',
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   messageContainer: {
-    marginVertical: 8,
+    marginVertical: 12,
     flexDirection: 'row',
   },
   leftAlign: {
