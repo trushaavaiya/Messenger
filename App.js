@@ -9,6 +9,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import {
   Colors,
@@ -37,10 +38,10 @@ import Screen17 from './src/Screen17';
 
 
 
-
 function App() {
 
   return (
+     <GestureHandlerRootView style={styles.container}>
     <View style={{flex:1}}>
       <StatusBar
         barStyle={'light-content'}
@@ -68,6 +69,7 @@ function App() {
        
       
     </View>
+    </GestureHandlerRootView>
   );
 }
 
