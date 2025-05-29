@@ -40,7 +40,8 @@ import {
 // import Screen19 from './src/Screen19';
 // import Screen20 from './src/Screen20';
 // import Screen21 from './src/Screen21';
-import Screen22 from './src/Screen22';
+// import Screen22 from './src/Screen22';
+import Screen23 from './src/Screen23';
 
 function App() {
   return (
@@ -70,7 +71,7 @@ function App() {
        {/* <Screen19/>  */}
        {/* <Screen20/>  */}
        {/* <Screen21/>  */}
-       <Screen22/> 
+       <Screen23/> 
       
 
     </View>
