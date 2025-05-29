@@ -39,7 +39,8 @@ import {
 // import Screen18 from './src/Screen18';
 // import Screen19 from './src/Screen19';
 // import Screen20 from './src/Screen20';
-import Screen21 from './src/Screen21';
+// import Screen21 from './src/Screen21';
+import Screen22 from './src/Screen22';
 
 function App() {
   return (
@@ -68,7 +69,8 @@ function App() {
        {/* <Screen18/>  */}
        {/* <Screen19/>  */}
        {/* <Screen20/>  */}
-       <Screen21/> 
+       {/* <Screen21/>  */}
+       <Screen22/> 
       
 
     </View>
