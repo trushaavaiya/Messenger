@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import {
   ScrollView,
@@ -9,6 +7,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import {
   Colors,
@@ -17,8 +16,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 // import Screen1 from './src/Screen1';
 //import Screen2 from './src/Screen2';
@@ -40,43 +38,31 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 // import Screen16 from './src/Screen16';
 import Screen17 from './src/Screen17';
 
-
-
 function App() {
-
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-    <View style={{flex:1}}>
-      <StatusBar
-        barStyle={'light-content'}
-      />
-      {/* <Screen1/> */}
-      {/* <Screen2/> */}
-      {/* <Screen3/> */}
-      {/* <Screen4/> */}
-      {/* <Screen5/> */}
-      {/* <Screen6/> */}
-      {/* <Screen7/> */}
-      {/* <Screen8/> */}
-      {/* <Screen9/> */}
-      {/* <Screen10/> */}
-      {/* <Screen11/> */}
-      {/* <Screen12/> */}
-      {/* <Screen13/> */}
-      {/* <Screen12/> */}
-      {/* <Screen13/> */}
-      {/* <Screen14/> */}
-      {/* <Screen15/> */}
-      {/* <Screen16/>  */}
-       <Screen17/> 
-      
-
-
-
-
-
-
-    </View>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <View style={{flex: 1}}>
+        <StatusBar barStyle={'light-content'} />
+        {/* <Screen1/> */}
+        {/* <Screen2/> */}
+        {/* <Screen3/> */}
+        {/* <Screen4/> */}
+        {/* <Screen5/> */}
+        {/* <Screen6/> */}
+        {/* <Screen7/> */}
+        {/* <Screen8/> */}
+        {/* <Screen9/> */}
+        {/* <Screen10/> */}
+        {/* <Screen11/> */}
+        {/* <Screen12/> */}
+        {/* <Screen13/> */}
+        {/* <Screen12/> */}
+        {/* <Screen13/> */}
+        {/* <Screen14/> */}
+        {/* <Screen15/> */}
+        {/* <Screen16/>  */}
+        <Screen17 />
+      </View>
     </GestureHandlerRootView>
   );
 }
