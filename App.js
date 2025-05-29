@@ -36,7 +36,8 @@ import {
 // import Screen16 from './src/Screen16';
 // import Screen17 from './src/Screen17';
 // import Screen18 from './src/Screen18';
-import Screen19 from './src/Screen19';
+// import Screen19 from './src/Screen19';
+import Screen20 from './src/Screen20';
 
 
 
@@ -66,7 +67,8 @@ function App() {
       {/* <Screen16/>  */}
        {/* <Screen17/>  */}
        {/* <Screen18/>  */}
-       <Screen19/> 
+       {/* <Screen19/>  */}
+       <Screen20/> 
       
 
       
