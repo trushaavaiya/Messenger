@@ -37,7 +37,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 // import Screen13 from './src/Screen13';
 // import Screen14 from './src/Screen14';
 // import Screen15 from './src/Screen15';
-import Screen16 from './src/Screen16';
+// import Screen16 from './src/Screen16';
+import Screen17 from './src/Screen17';
 
 
 
@@ -66,7 +67,8 @@ function App() {
       {/* <Screen13/> */}
       {/* <Screen14/> */}
       {/* <Screen15/> */}
-      <Screen16/> 
+      {/* <Screen16/>  */}
+       <Screen17/> 
       
 
 
