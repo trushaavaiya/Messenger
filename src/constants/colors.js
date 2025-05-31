@@ -29,7 +29,13 @@ const Colors = {
   checkboxSelected: '#6b28cf',
   checkboxUnselected: '#ccc',
   border: '#eee',
-  searchbg:'#f3f3f3'
+  searchbg:'#f3f3f3',
+  addicon:'#7D45FF',
+  back:'#f2f2f2',
+  borderline:'#ddd',
+
+  
+  
 };
 
 export default Colors;
