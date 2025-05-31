@@ -2,23 +2,22 @@
 
 import React from 'react';
 import {
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
-  useColorScheme,
   View,
 } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-// import Screen1 from './src/Screen1';
+// import {
+//   Colors,
+//   DebugInstructions,
+//   Header,
+//   LearnMoreLinks,
+//   ReloadInstructions,
+// } from 'react-native/Libraries/NewAppScreen';
+
+
+import Screen1 from './src/Screen1';
 //import Screen2 from './src/Screen2';
 // import Screen3 from './src/Screen3';
 // import Screen4 from './src/Screen4';
@@ -41,7 +40,7 @@ import {
 // import Screen21 from './src/Screen21';
 // import Screen22 from './src/Screen22';
 // import Screen23 from './src/Screen23';
-import Screen24 from './src/Screen24';
+// import Screen24 from './src/Screen24';
 
 
 
@@ -53,7 +52,7 @@ function App() {
       <StatusBar
         barStyle={'light-content'}
       />
-      {/* <Screen1/> */}
+      <Screen1/>
       {/* <Screen2/> */}
       {/* <Screen3/> */}
       {/* <Screen4/> */}
@@ -75,12 +74,7 @@ function App() {
        {/* <Screen20/>  */}
        {/* <Screen21/>  */}
        {/* <Screen23/>  */}
-       <Screen24/> 
-      
-
-      
-       
-      
+       {/* <Screen24/>  */}
     </View>
     </GestureHandlerRootView>
   );
