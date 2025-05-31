@@ -4,11 +4,12 @@ import {
   Text,
   TextInput,
   FlatList,
-  TouchableOpacity,
   StyleSheet,
   Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Fonts from './constants/fonts';
+import Colors from './constants/colors';
 
 const messages = [
   {
@@ -77,7 +78,7 @@ const MessagesScreen = () => {
             <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
           ) : (
             <View style={styles.placeholderAvatar}>
-              <Icon name="person" size={24} color="#aaa" />
+              <Icon name="person" size={Fonts.size} color={Colors.subtitle1} />
             </View>
           )}
         </View>
@@ -94,11 +95,7 @@ const MessagesScreen = () => {
               <Text style={styles.unreadText}>{item.unreadCount}</Text>
             </View>
           )}
-          {isDavidTan && (
-            <TouchableOpacity style={styles.rightTrashIcon}>
-              <Icon name="trash-outline" size={18} color="#888" />
-            </TouchableOpacity>
-          )}
+          
         </View>
       </View>
     );
@@ -107,16 +104,16 @@ const MessagesScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon name="menu-outline" size={28} color="#000" />
-        <Icon name="person-add-outline" size={28} color="#000" />
+        <Icon name="menu-outline" size={Fonts.titleSize} color={Colors.text1} />
+        <Icon name="person-add-outline" size={Fonts.titleSize} color={Colors.text1} />
       </View>
 
       <View style={styles.searchBar}>
-        <Icon name="search-outline" size={20} color="#999" style={styles.searchIcon} />
+        <Icon name="search-outline" size={Fonts.headerFontSize} color={Colors.searchIcon} style={styles.searchIcon} />
         <TextInput
           style={styles.searchInput}
           placeholder="Search"
-          placeholderTextColor="#999"
+          placeholderTextColor={Colors.searchIcon}
         />
       </View>
 
@@ -135,12 +132,13 @@ const MessagesScreen = () => {
     </View>
   );
 };
+
 export default MessagesScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
     paddingHorizontal: 16,
     paddingTop: 30,
   },
@@ -153,42 +151,42 @@ const styles = StyleSheet.create({
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f0f0f0',
-    borderRadius: 20,
+    backgroundColor: Colors.searchbg,
+    borderRadius: Fonts.headerFontSize,
     paddingHorizontal: 12,
     height: 36,
-    marginBottom: 20,
+    marginBottom: Fonts.headerFontSize,
   },
   searchIcon: {
     marginRight: 8,
   },
   searchInput: {
     flex: 1,
-    fontSize: 14,
-    color: '#000',
+    fontSize: Fonts.subtitleSize,
+    color: Colors.text1,
   },
   tabs: {
     flexDirection: 'row',
-    marginBottom: 20,
+    marginBottom: Fonts.headerFontSize,
   },
   activeTab: {
-    marginRight: 20,
+    marginRight: Fonts.headerFontSize,
     fontWeight: 'bold',
-    color: '#7D45FF',
+    color: Colors.addicon,
     borderBottomWidth: 2,
-    borderColor: '#7D45FF',
+    borderColor: Colors.addicon,
     paddingBottom: 4,
   },
   tab: {
-    marginRight: 20,
-    color: '#888',
+    marginRight: Fonts.headerFontSize,
+    color: Colors.subtitle1,
   },
   item: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: Colors.border,
   },
   avatarContainer: {
     marginRight: 12,
@@ -202,7 +200,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 10,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: Colors.placeholderBg,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -210,13 +208,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   name: {
-    fontWeight: 'bold',
-    fontSize: 15,
-    color: '#000',
+    fontWeight: Fonts.contactNameWeight,
+    fontSize: Fonts.contactNameSize,
+    color: Colors.text1,
   },
   message: {
-    fontSize: 13,
-    color: '#666',
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.subtitle1,
     marginTop: 2,
   },
   meta: {
@@ -226,19 +224,19 @@ const styles = StyleSheet.create({
   },
   date: {
     fontSize: 12,
-    color: '#999',
+    color: Colors.searchIcon,
   },
   unreadBadge: {
-    backgroundColor: '#7D45FF',
+    backgroundColor: Colors.addicon,
     borderRadius: 12,
-    width: 24,
-    height: 24,
+    width: Fonts.size,
+    height: Fonts.size,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
   },
   unreadText: {
-    color: '#fff',
+    color: Colors.buttonText,
     fontSize: 12,
     fontWeight: 'bold',
   },
