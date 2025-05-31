@@ -11,6 +11,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
+
 const contactsData = [
   {
     id: '1',
@@ -85,7 +88,7 @@ export default function ContactScreen() {
           <Image source={item.image} style={styles.avatar} />
         ) : (
           <View style={styles.placeholder}>
-            <Icon name="person" size={28} color="#914de2" />
+            <Icon name="person" size={28} color={Colors.primary1} />
           </View>
         )}
         <View style={styles.contactInfo}>
@@ -94,9 +97,9 @@ export default function ContactScreen() {
         </View>
         <View style={styles.checkbox}>
           {isSelected ? (
-            <Icon name="check-box" size={24} color="#6b28cf" />
+            <Icon name="check-box" size={24} color={Colors.checkboxSelected} />
           ) : (
-            <Icon name="check-box-outline-blank" size={24} color="#ccc" />
+            <Icon name="check-box-outline-blank" size={24} color={Colors.checkboxUnselected} />
           )}
         </View>
       </TouchableOpacity>
@@ -105,20 +108,20 @@ export default function ContactScreen() {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+      <StatusBar backgroundColor={Colors.background} barStyle="dark-content" />
       
       <View style={styles.header}>
-        <Icon name="arrow-back-ios" size={22} color="#000" />
+        <Icon name="arrow-back-ios" size={22} color={Colors.text1} />
         <Text style={styles.headerText}>Contacts</Text>
-        <Icon name="check" size={24} color="#6b28cf" />
+        <Icon name="check" size={24} color={Colors.primary1} />
       </View>
 
      
       <View style={styles.searchBox}>
-        <Icon name="search" size={20} color="#999" />
+        <Icon name="search" size={20} color={Colors.searchIcon} />
         <TextInput
           placeholder="Search"
-          placeholderTextColor="#999"
+          placeholderTextColor={Colors.searchIcon}
           style={styles.input}
         />
       </View>
@@ -136,7 +139,7 @@ export default function ContactScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
     paddingHorizontal: 16,
     paddingTop: 40,
   },
@@ -147,14 +150,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   headerText: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#000',
+    fontSize: Fonts.headerFontSize,
+    fontWeight: Fonts.headerFontWeight,
+    color: Colors.text,
   },
   searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f3f3f3',
+    backgroundColor: Colors.searchbg,
     borderRadius: 20,
     paddingHorizontal: 14,
     height: 40,
@@ -163,14 +166,14 @@ const styles = StyleSheet.create({
   input: {
     marginLeft: 10,
     flex: 1,
-    color: '#000',
+    color:Colors.text,
   },
   contactRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 12,
     borderBottomWidth: 0.5,
-    borderColor: '#eee',
+    borderColor: Colors.border,
   },
   avatar: {
     width: 45,
@@ -182,7 +185,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 5,
-    backgroundColor: '#f2eaff',
+    backgroundColor: Colors.placeholderBg,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -191,13 +194,13 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   contactName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#000',
+    fontSize: Fonts.contactNameSize,
+    fontWeight: Fonts.contactNameWeight,
+    color: Colors.text,
   },
   contactPhone: {
-    fontSize: 14,
-    color: '#666',
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.subtitle,
   },
   checkbox: {
     marginRight: 5,

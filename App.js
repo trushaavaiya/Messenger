@@ -18,8 +18,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 // import Screen1 from './src/Screen1';
-import Screen2 from './src/Screen2';
-// import Screen3 from './src/Screen3';
+// import Screen2 from './src/Screen2';
+import Screen3 from './src/Screen3';
 // import Screen4 from './src/Screen4';
 // import Screen5 from './src/Screen5';
 // import Screen6 from './src/Screen6';
@@ -53,8 +53,8 @@ function App() {
         barStyle={'light-content'}
       />
       {/* <Screen1/> */}
-      <Screen2/>
-      {/* <Screen3/> */}
+      {/* <Screen2/> */}
+      <Screen3/>
       {/* <Screen4/> */}
       {/* <Screen5/> */}
       {/* <Screen6/> */}

@@ -20,6 +20,16 @@ const Colors = {
   orangeLight: '#fda85d',
   ringOrange: '#ff7e00',
   trianglePurple: '#7e3ff2',
+
+  primary1: '#6b28cf',
+  text1: '#000',
+  subtitle1: '#666',
+  placeholderBg: '#f2eaff',
+  searchIcon: '#999',
+  checkboxSelected: '#6b28cf',
+  checkboxUnselected: '#ccc',
+  border: '#eee',
+  searchbg:'#f3f3f3'
 };
 
 export default Colors;
