@@ -3,6 +3,7 @@ const Fonts = {
   bold: 'System',
   titleSize: 28,
   subtitleSize: 14,
+  size:24,
 
   headerFontSize: 20,
   headerFontWeight: '600',
