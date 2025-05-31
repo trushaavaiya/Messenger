@@ -77,26 +77,22 @@ export default function App() {
           <Sidebar />
           <View style={styles.rightSideContainer}>
             <View style={styles.ghostSidebar} />
-
             <View style={styles.messagesPanel}>
               <View style={styles.topBar}>
                 <Text style={styles.hamburgerIcon}>☰</Text>
               </View>
-
               <View style={styles.searchBar}>
                 <Text style={styles.searchIcon}>🔍</Text>
                 <TextInput
                   placeholder="Search"
-                  placeholderTextColor="black"
+                  placeholderTextColor="#ccc"
                   style={styles.searchInput}
                 />
               </View>
-
               <View style={styles.tabs}>
                 <Text style={styles.activeTab}>All Messages</Text>
                 <Text style={styles.inactiveTab}>Personal</Text>
               </View>
-
               <FlatList
                 data={messages}
                 keyExtractor={(item) => item.id}
@@ -120,7 +116,7 @@ const styles = StyleSheet.create({
     padding: 25,
     justifyContent: 'flex-start',
   },
-  logoContainer: { alignItems: 'center', marginBottom: -20 ,marginTop:60 },
+  logoContainer: { alignItems: 'center', marginBottom: -20, marginTop: 60 },
   logo: { fontSize: 40, color: 'white' },
   sidebarTitle: { color: 'white', fontSize: 24, marginTop: 10, marginBottom: 25, fontWeight: '600' },
   menuItem: { fontWeight: '600', fontSize: 16, color: 'white', marginBottom: 15 },
@@ -133,7 +129,7 @@ const styles = StyleSheet.create({
     bottom: 100,
     right: 0,
     left: 15,
-    backgroundColor: '#ffffff80',
+    backgroundColor: '#ffffff20',
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 25,
     zIndex: 0,
@@ -142,7 +138,7 @@ const styles = StyleSheet.create({
   messagesPanel: {
     flex: 0.7,
     top: 100,
-    backgroundColor: 'white',
+    backgroundColor: '#000', // updated to black
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 25,
     paddingHorizontal: 20,
@@ -162,35 +158,39 @@ const styles = StyleSheet.create({
   },
   hamburgerIcon: {
     fontSize: 24,
-    color: '#6a5afd',
+    color: 'white',
   },
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f2f2f7',
+    backgroundColor: '#1a1a1a',
     borderRadius: 25,
-    width: '100%', 
-    maxWidth: 400, 
+    width: '100%',
+    maxWidth: 400,
     alignSelf: 'center',
     paddingHorizontal: 20,
     paddingVertical: 4,
     marginBottom: 15,
-    paddingRight:0
   },
   searchIcon: {
     fontSize: 16,
     marginRight: 8,
+    color: 'white',
   },
-  searchInput: { fontSize: 14, flex: 1 },
+  searchInput: {
+    fontSize: 14,
+    flex: 1,
+    color: 'white',
+  },
   tabs: { flexDirection: 'row', marginBottom: 15 },
   activeTab: { marginRight: 15, fontSize: 14, color: '#6a5afd', fontWeight: 'bold' },
-  inactiveTab: { fontSize: 14, color: '#9e9eff' },
+  inactiveTab: { fontSize: 14, color: '#ccc' },
   messageList: { paddingVertical: 15 },
   messageItem: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 12,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#333',
     borderBottomWidth: 1,
   },
   avatar: { width: 40, height: 40, borderRadius: 10 },
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 10,
-    backgroundColor: '#e7e7ff',
+    backgroundColor: '#2e2e2e',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -206,6 +206,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#6a5afd',
   },
-  messageName: { fontWeight: '700', fontSize: 15 },
-  messageText: { fontSize: 13, color: '#666', marginTop: 3 },
+  messageName: { fontWeight: '700', fontSize: 10, color: 'white' },
+  messageText: { fontSize: 13, color: '#ccc', marginTop: 2},
 });
