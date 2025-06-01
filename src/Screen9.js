@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   },
   banner: {
     backgroundColor: Colors.banner,
-    borderRadius: 12,
+    borderRadius: 10,
     padding: 25,
     marginTop: 25,
   },
