@@ -11,6 +11,9 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
+
 const menuItems = [
   { title: 'Inbox' },
   { title: 'Archived' },
@@ -33,7 +36,7 @@ const messages = [
 ];
 
 const Sidebar = () => (
-  <LinearGradient colors={['#6a5afd', '#8360c3']} style={styles.sidebar}>
+  <LinearGradient colors={[Colors.primary, Colors.purple]} style={styles.sidebar}>
     <View style={styles.logoContainer}>
       <Text style={styles.logo}>💬</Text>
       <Text style={styles.sidebarTitle}>Messages</Text>
@@ -72,7 +75,7 @@ const MessageItem = ({ item }) => (
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={['#6a5afd', '#8360c3']} style={styles.container}>
+      <LinearGradient colors={[Colors.primary, Colors.purple]} style={styles.container}>
         <View style={styles.mainContainer}>
           <Sidebar />
           <View style={styles.rightSideContainer}>
@@ -85,7 +88,7 @@ export default function App() {
                 <Text style={styles.searchIcon}>🔍</Text>
                 <TextInput
                   placeholder="Search"
-                  placeholderTextColor="#ccc"
+                  placeholderTextColor={Colors.searchIcon}
                   style={styles.searchInput}
                 />
               </View>
@@ -117,11 +120,25 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   logoContainer: { alignItems: 'center', marginBottom: -20, marginTop: 60 },
-  logo: { fontSize: 40, color: 'white' },
-  sidebarTitle: { color: 'white', fontSize: 24, marginTop: 10, marginBottom: 25, fontWeight: '600' },
-  menuItem: { fontWeight: '600', fontSize: 16, color: 'white', marginBottom: 15 },
-  divider: { borderBottomColor: '#9e9eff66', borderBottomWidth: 1, marginVertical: 20 },
-
+  logo: { fontSize: 40, color: Colors.buttonText },
+  sidebarTitle: {
+    color: Colors.buttonText,
+    fontSize: Fonts.titleSize,
+    marginTop: 10,
+    marginBottom: 25,
+    fontWeight: Fonts.headerFontWeight,
+  },
+  menuItem: {
+    fontWeight: Fonts.contactNameWeight,
+    fontSize: Fonts.contactNameSize,
+    color: Colors.buttonText,
+    marginBottom: 15,
+  },
+  divider: {
+    borderBottomColor: Colors.bottomcolor,
+    borderBottomWidth: 1,
+    marginVertical: 20,
+  },
   rightSideContainer: { flex: 2, position: 'relative' },
   ghostSidebar: {
     position: 'absolute',
@@ -129,7 +146,7 @@ const styles = StyleSheet.create({
     bottom: 100,
     right: 0,
     left: 15,
-    backgroundColor: '#ffffff20',
+    backgroundColor: Colors.background1,
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 25,
     zIndex: 0,
@@ -138,13 +155,13 @@ const styles = StyleSheet.create({
   messagesPanel: {
     flex: 0.7,
     top: 100,
-    backgroundColor: '#000', // updated to black
+    backgroundColor: Colors.text1,
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 25,
     paddingHorizontal: 20,
     paddingTop: 20,
     marginLeft: 40,
-    shadowColor: '#000',
+    shadowColor: Colors.text1,
     shadowOffset: { width: -3, height: 3 },
     shadowOpacity: 0.2,
     shadowRadius: 10,
@@ -157,13 +174,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   hamburgerIcon: {
-    fontSize: 24,
-    color: 'white',
+    fontSize: Fonts.headerFontSize,
+    color: Colors.buttonText,
   },
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1a1a1a',
+    backgroundColor: Colors.background2,
     borderRadius: 25,
     width: '100%',
     maxWidth: 400,
@@ -173,24 +190,32 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   searchIcon: {
-    fontSize: 16,
+    fontSize: Fonts.searchFontSize,
     marginRight: 8,
-    color: 'white',
+    color: Colors.buttonText,
   },
   searchInput: {
-    fontSize: 14,
+    fontSize: Fonts.searchFontSize,
     flex: 1,
-    color: 'white',
+    color: Colors.buttonText,
   },
   tabs: { flexDirection: 'row', marginBottom: 15 },
-  activeTab: { marginRight: 15, fontSize: 14, color: '#6a5afd', fontWeight: 'bold' },
-  inactiveTab: { fontSize: 14, color: '#ccc' },
+  activeTab: {
+    marginRight: 15,
+    fontSize: Fonts.tabFontSize,
+    color: Colors.primary,
+    fontWeight: 'bold',
+  },
+  inactiveTab: {
+    fontSize: Fonts.tabFontSize,
+    color: Colors.inactiveTab,
+  },
   messageList: { paddingVertical: 15 },
   messageItem: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 12,
-    borderBottomColor: '#333',
+    borderBottomColor: Colors.text,
     borderBottomWidth: 1,
   },
   avatar: { width: 40, height: 40, borderRadius: 10 },
@@ -198,14 +223,22 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 10,
-    backgroundColor: '#2e2e2e',
+    backgroundColor: Colors.background3,
     justifyContent: 'center',
     alignItems: 'center',
   },
   defaultAvatarIcon: {
-    fontSize: 24,
-    color: '#6a5afd',
+    fontSize: Fonts.size,
+    color: Colors.primary,
   },
-  messageName: { fontWeight: '700', fontSize: 10, color: 'white' },
-  messageText: { fontSize: 13, color: '#ccc', marginTop: 2},
+  messageName: {
+    fontWeight: Fonts.contactNameWeight,
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.buttonText,
+  },
+  messageText: {
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.messageText,
+    marginTop: 2,
+  },
 });
