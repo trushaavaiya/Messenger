@@ -38,6 +38,10 @@ const Colors = {
   headerText: '#4B1EFF',
   inactiveTab: '#888',
   messageText: '#777',
+  bottomcolor:'#9e9eff66',
+  background1:'#ffffff20',
+  background2:'#1a1a1a',
+  background3:'#2e2e2e',
 
   
   
