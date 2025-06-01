@@ -5,13 +5,15 @@ import {
   TextInput,
   ScrollView,
   StyleSheet,
-  Dimensions,
-  TouchableOpacity,
   Image,
+  TouchableOpacity,
   Modal,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
 
 const messages = [
   { name: '+91 87444 87846', message: 'okay, i will manage', date: '08, Dec' },
@@ -29,17 +31,16 @@ const MessageApp = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon name="menu" size={25} />
-        <Text style={styles.headerTitle}></Text>
-        <Icon name="add" size={25} />
+        <Icon name="menu" size={25} color={Colors.text} />
+        <Icon name="add" size={25} color={Colors.text} />
       </View>
 
       <View style={styles.searchContainer}>
-        <Icon name="search-outline" size={20} color="#aaa" />
+        <Icon name="search-outline" size={20} color={Colors.searchIcon} />
         <TextInput
           placeholder="Search"
           style={styles.searchInput}
-          placeholderTextColor={"black"}
+          placeholderTextColor={Colors.text}
         />
       </View>
 
@@ -65,7 +66,7 @@ const MessageApp = () => {
               <Image source={{ uri: item.avatar }} style={styles.avatar} />
             ) : (
               <View style={styles.avatarPlaceholder}>
-                <Icon name="person-outline" size={24} color="#999" />
+                <Icon name="person-outline" size={24} color={Colors.searchIcon} />
               </View>
             )}
             <View style={styles.messageTextContainer}>
@@ -99,7 +100,7 @@ const MessageApp = () => {
                   <FontAwesome
                     name="star"
                     size={30}
-                    color={i <= rating ? '#FFA500' : '#ccc'}
+                    color={i <= rating ? Colors.orange : Colors.checkboxUnselected}
                   />
                 </TouchableOpacity>
               ))}
@@ -120,7 +121,6 @@ const MessageApp = () => {
   );
 };
 
-
 export default MessageApp;
 
 const styles = StyleSheet.create({
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 15,
     paddingTop: 10,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
   },
   header: {
     height: 50,
@@ -137,12 +137,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: Fonts.headerFontSize,
+    fontWeight: Fonts.headerFontWeight,
+    color: Colors.headerText,
   },
   searchContainer: {
     flexDirection: 'row',
-    backgroundColor: '#f2f2f2',
+    backgroundColor: Colors.searchbg,
     paddingHorizontal: 10,
     paddingVertical: 8,
     borderRadius: 10,
@@ -152,6 +153,8 @@ const styles = StyleSheet.create({
   searchInput: {
     marginLeft: 10,
     flex: 1,
+    fontSize: Fonts.searchFontSize,
+    color: Colors.text,
   },
   tabs: {
     flexDirection: 'row',
@@ -159,28 +162,29 @@ const styles = StyleSheet.create({
   },
   tab: {
     marginRight: 20,
-    fontSize: 14,
-    color: '#888',
+    fontSize: Fonts.tabFontSize,
+    color: Colors.inactiveTab,
   },
   tabActive: {
-    color: '#4B1EFF',
+    color: Colors.headerText,
     fontWeight: 'bold',
-    textDecorationLine: "underline",
+    textDecorationLine: 'underline',
   },
   banner: {
-    backgroundColor: '#FFF2DB',
+    backgroundColor: Colors.banner,
     borderRadius: 12,
     padding: 25,
     marginTop: 25,
   },
   bannerText: {
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: Fonts.bannerTitleSize,
+    color: Colors.text,
     marginBottom: 2,
   },
   bannerSubText: {
-    fontSize: 13,
-    color: '#666',
+    fontSize: Fonts.bannerSubSize,
+    color: Colors.subtitle1,
   },
   bannerActions: {
     flexDirection: 'row',
@@ -188,12 +192,14 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   changeText: {
-    color: '#6A35FF',
+    color: Colors.addicon,
     marginRight: 20,
     fontWeight: 'bold',
+    fontSize: Fonts.bannerSubSize,
   },
   notNowText: {
-    color: '#999',
+    color: Colors.searchIcon,
+    fontSize: Fonts.bannerSubSize,
   },
   messageList: {
     marginTop: 20,
@@ -214,7 +220,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 10,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: Colors.placeholderBg,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,
@@ -223,16 +229,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   messageName: {
-    fontWeight: 'bold',
+    fontWeight: '600',
+    fontSize: Fonts.contactNameSize,
+    color: Colors.text,
   },
   messagePreview: {
-    color: '#777',
+    color: Colors.messageText,
+    fontSize: Fonts.contactPhoneSize,
   },
   messageDate: {
-    fontSize: 12,
-    color: '#999',
+    fontSize: Fonts.messageDateSize,
+    color: Colors.searchIcon,
   },
-
   modalBackground: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.4)',
@@ -241,13 +249,13 @@ const styles = StyleSheet.create({
   },
   popup: {
     width: 300,
-    backgroundColor: 'white',
+    backgroundColor: Colors.background,
     borderRadius: 20,
     overflow: 'hidden',
     elevation: 10,
   },
   headerSection: {
-    backgroundColor: '#F3EFFE',
+    backgroundColor: Colors.searchbg,
     alignItems: 'center',
     paddingVertical: 20,
     paddingHorizontal: 15,
@@ -261,14 +269,14 @@ const styles = StyleSheet.create({
   },
   popupTitle: {
     fontWeight: 'bold',
-    fontSize: 18,
-    color: '#333',
+    fontSize: Fonts.headerFontSize,
+    color: Colors.text,
     marginBottom: 5,
   },
   popupSubtitle: {
     textAlign: 'center',
-    color: '#666',
-    fontSize: 14,
+    color: Colors.subtitle1,
+    fontSize: Fonts.bannerSubSize,
   },
   stars: {
     flexDirection: 'row',
@@ -280,14 +288,15 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   rateButton: {
-    backgroundColor: '#5A31F4',
+    backgroundColor: Colors.primary,
     paddingVertical: 10,
     paddingHorizontal: 30,
     borderRadius: 10,
     marginBottom: 10,
   },
   rateButtonText: {
-    color: 'white',
+    color: Colors.buttonText,
     fontWeight: 'bold',
+    fontSize: Fonts.bannerSubSize,
   },
 });
