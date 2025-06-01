@@ -43,8 +43,12 @@ const Colors = {
   background2:'#1a1a1a',
   background3:'#2e2e2e',
 
-  
-  
+  darkBackground: '#000',
+  lightBorder: '#333',
+  contactPlaceholder: '#334',
+  lightText: '#bbb',
+
+
 };
 
 export default Colors;
