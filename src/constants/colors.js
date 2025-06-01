@@ -33,6 +33,11 @@ const Colors = {
   addicon:'#7D45FF',
   back:'#f2f2f2',
   borderline:'#ddd',
+  banner:'#FFF2DB',
+
+  headerText: '#4B1EFF',
+  inactiveTab: '#888',
+  messageText: '#777',
 
   
   
