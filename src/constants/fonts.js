@@ -10,6 +10,12 @@ const Fonts = {
   contactNameSize: 16,
   contactNameWeight: '600',
   contactPhoneSize: 14,
+
+  searchFontSize: 14,
+  tabFontSize: 14,
+  bannerTitleSize: 15,
+  bannerSubSize: 13,
+  messageDateSize: 12,
 };
 
 export default Fonts;
