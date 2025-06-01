@@ -11,6 +11,9 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
+import Colors from "./constants/colors";
+import Fonts from "./constants/fonts";
+
 const messagesData = [
   { id: "1", text: "Yea... We need to discuss about it in person!", sender: "other" },
   { id: "2", text: "Will catch up tomorrow at wendy’s 9 in the morning... C ya!", sender: "other" },
@@ -47,13 +50,13 @@ export default function ChatScreen() {
       <View style={styles.header}>
         <View style={styles.backWithTitle}>
           <TouchableOpacity>
-            <Icon name="chevron-back" size={28} color="#fff" />
+            <Icon name="chevron-back" size={28} color={Colors.buttonText} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Aajaybhai</Text>
         </View>
 
         <TouchableOpacity>
-          <Icon name="person-add-outline" size={24} color="#fff" />
+          <Icon name="person-add-outline" size={24} color={Colors.buttonText} />
         </TouchableOpacity>
       </View>
 
@@ -81,43 +84,43 @@ export default function ChatScreen() {
 
       <View style={styles.messageInputContainer}>
         <View style={styles.inputWithIcon}>
-          <Icon name="add" size={24} color="yellow" style={styles.addInsideIcon} />
+          <Icon name="add" size={24} color={Colors.addicon} style={styles.addInsideIcon} />
           <TextInput
             style={styles.messageInput}
             placeholder="Type your message here"
-            placeholderTextColor="#ccc"
+            placeholderTextColor={Colors.lightText}
             value={input}
             onChangeText={setInput}
           />
           <TouchableOpacity style={styles.sendButton}>
-            <Icon name="send" size={22} color="white" />
+            <Icon name="send" size={22} color={Colors.buttonText} />
           </TouchableOpacity>
         </View>
       </View>
 
       <View style={styles.inputContainer}>
         <TouchableOpacity style={styles.iconButton}>
-          <Icon name="camera-outline" size={28} color="#fff" />
+          <Icon name="camera-outline" size={28} color={Colors.buttonText} />
           <Text style={styles.iconLabel}>Camera</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={[styles.iconButton, styles.iconButtonActive]}>
-          <Icon name="image-outline" size={28} color="#fff" />
-          <Text style={[styles.iconLabel, { color: "#fff" }]}>Gallery</Text>
+          <Icon name="image-outline" size={28} color={Colors.buttonText} />
+          <Text style={[styles.iconLabel, { color: Colors.buttonText }]}>Gallery</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.iconButton}>
-          <Icon name="person-outline" size={28} color="#fff" />
+          <Icon name="person-outline" size={28} color={Colors.buttonText} />
           <Text style={styles.iconLabel}>Contact</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.iconButton}>
-          <Icon name="calendar-outline" size={28} color="#fff" />
+          <Icon name="calendar-outline" size={28} color={Colors.buttonText} />
           <Text style={styles.iconLabel}>Schedule</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.iconButton}>
-          <Icon name="location-outline" size={28} color="#fff" />
+          <Icon name="location-outline" size={28} color={Colors.buttonText} />
           <Text style={styles.iconLabel}>Location</Text>
         </TouchableOpacity>
       </View>
@@ -128,7 +131,7 @@ export default function ChatScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: Colors.darkBackground,
   },
   header: {
     height: 60,
@@ -137,8 +140,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     justifyContent: "space-between",
     borderBottomWidth: 0.5,
-    borderBottomColor: "#444",
-    backgroundColor: "#111",
+    borderBottomColor: Colors.lightBorder,
+    backgroundColor: Colors.darkBackground,
   },
   backWithTitle: {
     flexDirection: "row",
@@ -146,9 +149,9 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   headerTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#fff",
+    fontSize: Fonts.headerFontSize,
+    fontWeight: Fonts.headerFontWeight,
+    color: Colors.buttonText,
   },
   messageContainer: {
     marginVertical: 5,
@@ -156,25 +159,25 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   messageLeft: {
-    backgroundColor: "#333",
+    backgroundColor: Colors.lightBorder,
     alignSelf: "flex-start",
     borderTopLeftRadius: 0,
     marginVertical: 15,
   },
   messageRight: {
-    backgroundColor: "#7D45FF",
+    backgroundColor: Colors.addicon,
     alignSelf: "flex-end",
     borderTopRightRadius: 0,
     marginVertical: 15,
   },
   messageText: {
-    fontSize: 16,
+    fontSize: Fonts.searchFontSize,
   },
   messageTextLeft: {
-    color: "#fff",
+    color: Colors.buttonText,
   },
   messageTextRight: {
-    color: "#fff",
+    color: Colors.buttonText,
   },
   dateSeparator: {
     flexDirection: "row",
@@ -185,12 +188,13 @@ const styles = StyleSheet.create({
   line: {
     flex: 1,
     height: 1,
-    backgroundColor: "#444",
+    backgroundColor: Colors.lightBorder,
   },
   dateText: {
     marginHorizontal: 8,
-    color: "#aaa",
+    color: Colors.lightText,
     fontWeight: "600",
+    fontSize: Fonts.messageDateSize,
   },
   messageInputContainer: {
     flexDirection: "row",
@@ -198,13 +202,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderTopWidth: 0,
-    borderTopColor: "#333",
-    backgroundColor: "#111",
+    backgroundColor: Colors.darkBackground,
   },
   inputWithIcon: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#333",
+    backgroundColor: Colors.lightBorder,
     borderRadius: 20,
     flex: 1,
     marginRight: 8,
@@ -215,12 +218,12 @@ const styles = StyleSheet.create({
   },
   messageInput: {
     flex: 1,
-    fontSize: 16,
-    color: "#fff",
+    fontSize: Fonts.searchFontSize,
+    color: Colors.buttonText,
     paddingVertical: 12,
   },
   sendButton: {
-    backgroundColor: "#7D45FF",
+    backgroundColor: Colors.addicon,
     borderRadius: 20,
     width: 35,
     height: 35,
@@ -234,8 +237,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     paddingVertical: 12,
     borderTopWidth: 0,
-    borderTopColor: "#333",
-    backgroundColor: "#111",
+    backgroundColor: Colors.darkBackground,
   },
   iconButton: {
     alignItems: "center",
@@ -244,11 +246,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   iconLabel: {
-    fontSize: 10,
-    color: "#fff",
+    fontSize: Fonts.bannerSubSize,
+    color: Colors.buttonText,
     marginTop: 4,
   },
   iconButtonActive: {
-    backgroundColor: "#7D45FF",
+    backgroundColor: Colors.addicon,
   },
 });

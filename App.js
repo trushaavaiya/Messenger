@@ -26,13 +26,13 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 // import Screen7 from './src/Screen7';
 // import Screen8 from './src/Screen8';
 // import Screen9 from './src/Screen9';
-import Screen10 from './src/Screen10';
+// import Screen10 from './src/Screen10';
 // import Screen11 from './src/Screen11';
 // import Screen12 from './src/Screen12';
 // import Screen13 from './src/Screen13';
 // import Screen14 from './src/Screen14';
 // import Screen15 from './src/Screen15';
-// import Screen16 from './src/Screen16';
+import Screen16 from './src/Screen16';
 // import Screen17 from './src/Screen17';
 // import Screen18 from './src/Screen18';
 // import Screen19 from './src/Screen19';
@@ -61,13 +61,13 @@ function App() {
       {/* <Screen7/> */}
       {/* <Screen8/> */}
       {/* <Screen9/> */}
-      <Screen10/>
+      {/* <Screen10/> */}
       {/* <Screen11/> */}
       {/* <Screen12/> */}
       {/* <Screen13/> */}
       {/* <Screen14/> */}
       {/* <Screen15/> */}
-      {/* <Screen16/>  */}
+      <Screen16/> 
        {/* <Screen17/>  */}
        {/* <Screen18/>  */}
        {/* <Screen19/>  */}
