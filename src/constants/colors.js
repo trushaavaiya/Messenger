@@ -48,6 +48,10 @@ const Colors = {
   contactPlaceholder: '#334',
   lightText: '#bbb',
 
+  accentPurple: '#7D45FF',
+  deleteRed: '#FF3B30',
+  grayTextLight: '#aaa',
+
 
 };
 
