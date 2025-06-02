@@ -51,6 +51,11 @@ const Colors = {
   accentPurple: '#7D45FF',
   deleteRed: '#FF3B30',
   grayTextLight: '#aaa',
+  
+  searchContainerBg: '#222',
+divider: '#222',
+badgePurple: '#bb86fc',
+
 
 
 };
