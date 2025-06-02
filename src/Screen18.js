@@ -9,6 +9,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
+
 const messages = [
   {
     id: '1',
@@ -72,7 +75,7 @@ const MessagesScreen = () => {
           <Image source={item.avatar} style={styles.avatar} />
         ) : (
           <View style={styles.avatarPlaceholder}>
-            <Icon name="person-outline" size={24} color="#bb86fc" />
+            <Icon name="person-outline" size={Fonts.size} color={Colors.accentPurple} />
           </View>
         )}
         <View style={styles.messageContent}>
@@ -94,15 +97,15 @@ const MessagesScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
-        <Icon name="menu-outline" size={28} color="#fff" />
-        <Icon name="add-outline" size={28} color="#fff" />
+        <Icon name="menu-outline" size={Fonts.titleSize} color={Colors.buttonText} />
+        <Icon name="add-outline" size={Fonts.titleSize} color={Colors.buttonText} />
       </View>
 
       <View style={styles.searchContainer}>
-        <Icon name="search-outline" size={20} color="#ccc" />
+        <Icon name="search-outline" size={Fonts.headerFontSize} color={Colors.searchIcon} />
         <TextInput
           placeholder="Search"
-          placeholderTextColor="#888"
+          placeholderTextColor={Colors.grayTextLight}
           style={styles.searchInput}
         />
       </View>
@@ -128,52 +131,55 @@ export default MessagesScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000', 
+    backgroundColor: Colors.darkBackground,
     paddingHorizontal: 16,
-    paddingTop: 20,
+    paddingTop: Fonts.headerFontSize,
   },
   topBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: Fonts.headerFontSize,
   },
   searchContainer: {
     flexDirection: 'row',
-    backgroundColor: '#222',
-    borderRadius: 20,
+    backgroundColor: Colors.lightBorder,
+    borderRadius: Fonts.headerFontSize,
     paddingHorizontal: 12,
     alignItems: 'center',
     height: 40,
-    marginBottom: 20,
+    marginBottom: Fonts.headerFontSize,
   },
   searchInput: {
     marginLeft: 8,
     flex: 1,
-    fontSize: 14,
-    color: '#fff', 
+    fontSize: Fonts.searchFontSize,
+    color: Colors.buttonText,
+    fontFamily: Fonts.regular,
   },
   tabs: {
     flexDirection: 'row',
-    marginBottom: 20,
+    marginBottom: Fonts.headerFontSize,
   },
   activeTab: {
-    color: '#bb86fc', 
+    color: Colors.primary,
     fontWeight: 'bold',
     marginRight: 16,
     borderBottomWidth: 2,
-    borderColor: '#bb86fc',
+    borderColor: Colors.primary,
     paddingBottom: 4,
+    fontSize: Fonts.tabFontSize,
   },
   tab: {
-    color: '#aaa', 
+    color: Colors.inactiveTab,
     marginRight: 16,
+    fontSize: Fonts.tabFontSize,
   },
   messageRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#222',
+    borderBottomColor: Colors.lightBorder,
   },
   avatar: {
     width: 50,
@@ -185,7 +191,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 10,
-    backgroundColor: '#333', 
+    backgroundColor: Colors.contactPlaceholder,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -194,13 +200,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   name: {
-    fontWeight: 'bold',
-    fontSize: 15,
-    color: '#fff', 
+    fontWeight: Fonts.contactNameWeight,
+    fontSize: Fonts.contactNameSize,
+    color: Colors.buttonText,
   },
   message: {
-    fontSize: 13,
-    color: '#ccc', 
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.messageText,
     marginTop: 2,
   },
   meta: {
@@ -208,21 +214,21 @@ const styles = StyleSheet.create({
     width: 60,
   },
   date: {
-    fontSize: 12,
-    color: '#666',
-    textAlign: 'center', 
+    fontSize: Fonts.messageDateSize,
+    color: Colors.subtitle1,
+    textAlign: 'center',
   },
   unreadBadge: {
-    backgroundColor: '#bb86fc', 
-    borderRadius: 6, 
-    width: 24,
-    height: 24,
+    backgroundColor: Colors.primary,
+    borderRadius: 10,
+    width: Fonts.size,
+    height: Fonts.size,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 4, 
+    marginBottom: 4,
   },
   unreadText: {
-    color: '#000',
+    color: Colors.darkBackground,
     fontWeight: 'bold',
     fontSize: 14,
   },
