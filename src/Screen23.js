@@ -7,8 +7,11 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons'; 
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
 
 const SettingsScreen = () => {
   const [pureBlackMode, setPureBlackMode] = useState(false);
@@ -18,7 +21,7 @@ const SettingsScreen = () => {
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity>
-          <Ionicons name="chevron-back" size={28} color="#fff" />
+          <Ionicons name="chevron-back" size={28} color={Colors.buttonText} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Settings</Text>
       </View>
@@ -26,7 +29,7 @@ const SettingsScreen = () => {
       <Text style={styles.sectionHeader}>Appearance</Text>
 
       <View style={styles.settingRow}>
-        <Icon name="gavel" size={22} color="#bbb" style={styles.icon} />
+        <Icon name="gavel" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Night Mode</Text>
           <Text style={styles.settingSubtitle}>System</Text>
@@ -34,20 +37,20 @@ const SettingsScreen = () => {
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="weather-night" size={22} color="#bbb" style={styles.icon} />
+        <Icon name="weather-night" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Pure black night mode</Text>
         </View>
         <Switch
           value={pureBlackMode}
           onValueChange={setPureBlackMode}
-          trackColor={{ false: '#555', true: '#6A35FF' }}
-          thumbColor={pureBlackMode ? '#fff' : '#ccc'}
+          trackColor={{ false: Colors.lightBorder, true: Colors.accentPurple }}
+          thumbColor={pureBlackMode ? Colors.buttonText : Colors.grayTextLight}
         />
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="format-size" size={22} color="#bbb" style={styles.icon} />
+        <Icon name="format-size" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Font size</Text>
           <Text style={styles.settingSubtitle}>Normal</Text>
@@ -55,29 +58,29 @@ const SettingsScreen = () => {
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="format-text" size={22} color="#bbb" style={styles.icon} />
+        <Icon name="format-text" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Use system font</Text>
         </View>
         <Switch
           value={useSystemFont}
           onValueChange={setUseSystemFont}
-          trackColor={{ false: '#555', true: '#6A35FF' }}
-          thumbColor={useSystemFont ? '#fff' : '#ccc'}
+          trackColor={{ false: Colors.lightBorder, true: Colors.accentPurple }}
+          thumbColor={useSystemFont ? Colors.buttonText : Colors.grayTextLight}
         />
       </View>
 
       <Text style={styles.sectionHeader}>General</Text>
 
       <View style={styles.settingRow}>
-        <Icon name="bell-outline" size={22} color="#bbb" style={styles.icon} />
+        <Icon name="bell-outline" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Notifications</Text>
         </View>
       </View>
 
       <View style={styles.settingRow}>
-        <Icon name="timer-outline" size={22} color="#bbb" style={styles.icon} />
+        <Icon name="timer-outline" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Delayed Sending</Text>
           <Text style={styles.settingSubtitle}>No delay</Text>
@@ -88,7 +91,7 @@ const SettingsScreen = () => {
         <Icon
           name="gesture-swipe-horizontal"
           size={22}
-          color="#bbb"
+          color={Colors.lightText}
           style={styles.icon}
         />
         <View style={styles.settingTextContainer}>
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingTop: 50,
-    backgroundColor: '#000', 
+    backgroundColor: Colors.darkBackground,
   },
   header: {
     flexDirection: 'row',
@@ -117,15 +120,15 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   headerTitle: {
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: Fonts.headerFontSize,
+    fontWeight: Fonts.headerFontWeight,
     marginLeft: 20,
-    color: '#fff',
+    color: Colors.buttonText,
   },
   sectionHeader: {
-    color: '#6A35FF', 
+    color: Colors.accentPurple,
     fontWeight: 'bold',
-    fontSize: 13,
+    fontSize: Fonts.bannerSubSize,
     marginBottom: 10,
     marginTop: 25,
   },
@@ -134,7 +137,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 20,
     borderBottomWidth: 0.5,
-    borderColor: '#222',
+    borderColor: Colors.divider,
   },
   icon: {
     width: 30,
@@ -144,11 +147,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   settingTitle: {
-    fontSize: 16,
-    color: '#fff', 
+    fontSize: Fonts.contactNameSize,
+    color: Colors.buttonText,
   },
   settingSubtitle: {
-    fontSize: 13,
-    color: '#aaa', 
+    fontSize: Fonts.bannerSubSize,
+    color: Colors.grayTextLight,
   },
 });
