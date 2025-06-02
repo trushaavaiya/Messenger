@@ -56,6 +56,11 @@ const Colors = {
 divider: '#222',
 badgePurple: '#bb86fc',
 
+  darkBackground2: '#121212',
+  bannerBg: '#3B2F1D',
+  bannerSubtitleColor: '#B6A67F',
+  avatarPlaceholderBg: '#101',
+  lightGray: '#eee',
 
 
 };
