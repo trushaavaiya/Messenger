@@ -12,47 +12,23 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
 const messagesData = [
   { id: '1', text: "How's the concept?", sender: 'me', date: 'Tomorrow' },
-  {
-    id: '2',
-    text: 'Yea... We need to discuss about it in person!',
-    sender: 'other',
-    date: 'Tomorrow',
-  },
-  {
-    id: '3',
-    text: 'Will catch up tomorrow at wendy’s 9 in the morning... C ya!',
-    sender: 'other',
-    date: 'Tomorrow',
-  },
+  { id: '2', text: 'Yea... We need to discuss about it in person!', sender: 'other', date: 'Tomorrow' },
+  { id: '3', text: 'Will catch up tomorrow at wendy’s 9 in the morning... C ya!', sender: 'other', date: 'Tomorrow' },
   { id: '4', text: 'Good night and tc!', sender: 'other', date: 'Tomorrow' },
-  {
-    id: '5',
-    text: 'Bye! Good night and tc!',
-    sender: 'me',
-    date: 'Tomorrow',
-  },
-  {
-    id: '6',
-    text: 'Don’t be late tomorrow morning... will leave if I don’t see u',
-    sender: 'other',
-    date: 'Tomorrow',
-  },
-  {
-    id: '7',
-    text: 'Hello.! Good morning!',
-    sender: 'me',
-    date: 'Today',
-  },
+  { id: '5', text: 'Bye! Good night and tc!', sender: 'me', date: 'Tomorrow' },
+  { id: '6', text: 'Don’t be late tomorrow morning... will leave if I don’t see u', sender: 'other', date: 'Tomorrow' },
+  { id: '7', text: 'Hello.! Good morning!', sender: 'me', date: 'Today' },
 ];
 
 const ChatScreen = () => {
   const [input, setInput] = useState('');
 
   const renderItem = ({ item, index }) => {
-    const showDate =
-      index === 0 || item.date !== messagesData[index - 1].date;
+    const showDate = index === 0 || item.date !== messagesData[index - 1].date;
 
     return (
       <View>
@@ -72,7 +48,7 @@ const ChatScreen = () => {
         >
           {item.sender === 'me' ? (
             <LinearGradient
-              colors={['#9D4EDD', '#7D45FF']}
+              colors={[Colors.primary, Colors.accentPurple]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
               style={styles.sentBubble}
@@ -97,7 +73,7 @@ const ChatScreen = () => {
     >
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton}>
-          <Icon name="chevron-back" size={28} color="#fff" />
+          <Icon name="chevron-back" size={28} color={Colors.buttonText} />
         </TouchableOpacity>
 
         <View style={styles.nameBox}>
@@ -105,7 +81,7 @@ const ChatScreen = () => {
         </View>
 
         <TouchableOpacity style={styles.avtar}>
-          <Icon name="person" size={24} color="#fff" />
+          <Icon name="person" size={24} color={Colors.buttonText} />
         </TouchableOpacity>
       </View>
 
@@ -118,17 +94,17 @@ const ChatScreen = () => {
 
       <View style={styles.inputContainer}>
         <View style={styles.inputBox}>
-          <Icon name="add-outline" size={22} color="yellow" style={styles.leftIcon} />
+          <Icon name="add-outline" size={22} color={Colors.addicon} style={styles.leftIcon} />
           <TextInput
             style={styles.textInput}
             placeholder="Type your message"
-            placeholderTextColor="#ccc"
+            placeholderTextColor={Colors.grayTextLight}
             value={input}
             onChangeText={setInput}
           />
           <TouchableOpacity style={styles.sendButton}>
-                      <Icon name="send" size={22} color="white" />
-        </TouchableOpacity>
+            <Icon name="send" size={22} color={Colors.buttonText} />
+          </TouchableOpacity>
         </View>
       </View>
     </KeyboardAvoidingView>
@@ -140,7 +116,7 @@ export default ChatScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: Colors.darkBackground,
   },
   header: {
     paddingTop: 20,
@@ -161,9 +137,9 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   title: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#fff',
+    fontSize: Fonts.headerFontSize,
+    fontWeight: Fonts.headerFontWeight,
+    color: Colors.buttonText,
   },
   messageContainer: {
     marginVertical: 12,
@@ -182,19 +158,19 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
   },
   sentText: {
-    color: '#fff',
-    fontSize: 14,
+    color: Colors.buttonText,
+    fontSize: Fonts.contactPhoneSize,
   },
   receivedBubble: {
-    backgroundColor: '#222',
+    backgroundColor: Colors.divider,
     padding: 12,
     borderRadius: 18,
     maxWidth: '80%',
     borderBottomLeftRadius: 0,
   },
   receivedText: {
-    fontSize: 14,
-    color: '#fff',
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.buttonText,
   },
   dateSeparator: {
     flexDirection: 'row',
@@ -204,22 +180,22 @@ const styles = StyleSheet.create({
   },
   separatorLine: {
     height: 1,
-    backgroundColor: '#555',
+    backgroundColor: Colors.lightBorder,
     flex: 1,
     marginHorizontal: 10,
   },
   dateText: {
-    color: '#888',
-    fontSize: 12,
+    color: Colors.grayTextLight,
+    fontSize: Fonts.messageDateSize,
   },
   inputContainer: {
     padding: 10,
-    backgroundColor: '#111',
+    backgroundColor: Colors.darkBackground,
   },
   inputBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#222',
+    backgroundColor: Colors.divider,
     borderRadius: 24,
     paddingHorizontal: 15,
     height: 45,
@@ -227,31 +203,24 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
-    fontSize: 14,
-    color: '#fff',
-    textAlignVertical: 'center', 
-  textAlign: 'center', 
-    
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.buttonText,
+    textAlignVertical: 'center',
+    textAlign: 'center',
   },
   leftIcon: {
     position: 'absolute',
     left: 12,
     zIndex: 1,
   },
-  sendIconContainer: {
-    position: 'absolute',
-    right: 12,
-    padding: 4,
-    zIndex: 1,
-  },
   sendButton: {
-    backgroundColor: "#7D45FF",
+    backgroundColor: Colors.accentPurple,
     borderRadius: 20,
     width: 35,
     height: 35,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     borderTopRightRadius: 0,
-    transform: [{ rotate: "-0deg" }],
+    transform: [{ rotate: '-0deg' }],
   },
 });
