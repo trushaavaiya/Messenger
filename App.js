@@ -1,21 +1,18 @@
-
-
 import React from 'react';
 import {
   StatusBar,
   StyleSheet,
   View,
 } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-// import {
-//   Colors,
-//   DebugInstructions,
-//   Header,
-//   LearnMoreLinks,
-//   ReloadInstructions,
-// } from 'react-native/Libraries/NewAppScreen';
-
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  LearnMoreLinks,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
 
 // import Screen1 from './src/Screen1';
 // import Screen2 from './src/Screen2';
@@ -33,6 +30,14 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 // import Screen14 from './src/Screen14';
 // import Screen15 from './src/Screen15';
 import Screen16 from './src/Screen16';
+// import Screen12 from './src/Screen12';
+// import Screen13 from './src/Screen13';
+// import Screen11 from './src/Screen11';
+// import Screen12 from './src/Screen12';
+// import Screen13 from './src/Screen13';
+// import Screen14 from './src/Screen14';
+// import Screen15 from './src/Screen15';
+// import Screen16 from './src/Screen16';
 // import Screen17 from './src/Screen17';
 // import Screen18 from './src/Screen18';
 // import Screen19 from './src/Screen19';
@@ -43,9 +48,9 @@ import Screen16 from './src/Screen16';
 // import Screen24 from './src/Screen24';
 
 
+//import Screen24 from './src/Screen24';
 
 function App() {
-
   return (
      <GestureHandlerRootView style={styles.container}>
     <View style={{flex:1}}>
@@ -68,6 +73,7 @@ function App() {
       {/* <Screen14/> */}
       {/* <Screen15/> */}
       <Screen16/> 
+      {/* <Screen16/>  */}
        {/* <Screen17/>  */}
        {/* <Screen18/>  */}
        {/* <Screen19/>  */}
@@ -81,6 +87,9 @@ function App() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,

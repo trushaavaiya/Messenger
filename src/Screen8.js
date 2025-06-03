@@ -249,13 +249,13 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   avatar: {
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
     borderRadius: 10,
   },
   placeholderAvatar: {
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
     borderRadius: 10,
     backgroundColor: Colors.placeholderBg,
     justifyContent: 'center',

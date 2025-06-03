@@ -49,7 +49,7 @@ export default function ChatScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity>
-            <Icon name="arrow-back" size={Fonts.size} color={Colors.text} />
+            <Icon name="chevron-back" size={Fonts.size} color={Colors.text} />
         </TouchableOpacity>
 
         <View style={styles.headerTitleContainer}>
@@ -214,7 +214,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.addicon,
     alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#f2f2f2",
+    borderRadius: 20,
+    flex: 1,
+    marginRight: 8,
+    paddingHorizontal: 12,
+    borderRadius:15,
+  },
+  addInsideIcon: {
+    marginRight: 8,
   },
   messageInput: {
     flex: 1,
@@ -243,7 +251,6 @@ const styles = StyleSheet.create({
     paddingRight:0,
     transform: [{rotate: '-45deg'}],
   },
-
   inputContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -255,11 +262,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 6,
     paddingHorizontal: 10,
-    borderRadius: 20,
+    borderRadius: 10,
   },
   iconLabel: {
     fontSize: 10,
-    color: Colors.subtitle,
+    color: "#fff",
     marginTop: 4,
   },
   iconButtonActive: {

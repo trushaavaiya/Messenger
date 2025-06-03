@@ -146,14 +146,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  header: {
-    paddingTop: 50,
-    paddingBottom: 12,
-    paddingHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
+ 
   nameBox: {
     backgroundColor: Colors.placeholderBg,
     paddingHorizontal: 12,
@@ -170,7 +163,7 @@ const styles = StyleSheet.create({
     color: Colors.text1,
   },
   messageContainer: {
-    marginVertical: 8,
+    marginVertical: 10,
     flexDirection: 'row',
   },
   leftAlign: {
@@ -216,10 +209,11 @@ const styles = StyleSheet.create({
     color: Colors.subtitle1,
     fontSize: 12,
   },
-  inputContainer: {
-    flexDirection: 'row',
-    padding: 15,
-    alignItems: 'center',
+ messageInputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 20,
     borderTopWidth: 0,
     borderTopColor: Colors.border,
     gap: 8,

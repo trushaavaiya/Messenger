@@ -6,10 +6,13 @@ import {
   FlatList,
   StyleSheet,
   Image,
+  TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Fonts from './constants/fonts';
 import Colors from './constants/colors';
+import { Swipeable } from 'react-native-gesture-handler';
+
 
 const messages = [
   {
@@ -68,11 +71,17 @@ const messages = [
 ];
 
 const MessagesScreen = () => {
+  const renderRightActions = (item) => (
+    <TouchableOpacity
+      style={styles.deleteAction}
+      onPress={() => console.log('Delete message:', item.name)}
+    >
+      <Icon name="trash-outline" size={24} color="red" />
+    </TouchableOpacity>
+  );
   const renderItem = ({ item }) => {
-    const isDavidTan = item.name === 'David Tan';
-
     return (
-      <View style={styles.item}>
+      <Swipeable style={styles.item}>
         <View style={styles.avatarContainer}>
           {item.avatar ? (
             <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
@@ -83,10 +92,10 @@ const MessagesScreen = () => {
           )}
         </View>
 
-        <View style={styles.messageContent}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.message}>{item.message}</Text>
-        </View>
+          <View style={styles.messageContent}>
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.message}>{item.message}</Text>
+          </View>
 
         <View style={styles.meta}>
           <Text style={styles.date}>{item.date}</Text>
@@ -97,7 +106,7 @@ const MessagesScreen = () => {
           )}
           
         </View>
-      </View>
+      </Swipeable>
     );
   };
 

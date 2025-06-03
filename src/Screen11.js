@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: Fonts.subtitleSize,
     marginBottom: 10,
-    marginTop: 25,
+    marginTop: 10,
   },
   settingRow: {
     flexDirection: 'row',
