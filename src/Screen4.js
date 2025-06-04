@@ -214,12 +214,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.addicon,
     alignItems: "center",
-    backgroundColor: "#f2f2f2",
-    borderRadius: 20,
+    backgroundColor:Colors.back,
+    
     flex: 1,
-    marginRight: 8,
+
     paddingHorizontal: 12,
-    borderRadius:15,
+   
   },
   addInsideIcon: {
     marginRight: 8,
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
   },
   iconLabel: {
     fontSize: 10,
-    color: "#fff",
+    color: Colors.background,
     marginTop: 4,
   },
   iconButtonActive: {
