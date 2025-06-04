@@ -7,14 +7,16 @@ import {
   TouchableOpacity,
   StatusBar,
   Dimensions,
-} from 'react-native';
+} from 'react-native'
+import Colors from './constants/colors';
+import Fonts from './constants/fonts' ;
 
 const { width, height } = Dimensions.get('window');
 
 export default function Screen1() {
   return (
         <View style={styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
             <View style={[styles.circle, { top: 30, left: -40 }]} />
             <View style={[styles.circleSmall, { bottom: 60, left: -0.01 }]} />
             <View style={[styles.triangle, { top: 60, right: 40 }]} />
@@ -54,17 +56,17 @@ export default function Screen1() {
 const styles = StyleSheet.create({
 container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
     padding: 20,
   },
    content: {
     flex: 1,
-    justifyContent: 'center',  
+    justifyContent: 'center',
     alignItems: 'center',
   },
    buttonContainer: {
     position: 'absolute',
-    bottom: 30,   
+    bottom: 30,
     left: 20,
     right: 20,
     alignItems: 'center',
@@ -76,23 +78,23 @@ container: {
     marginBottom: 30,
   },
   title: {
-    fontSize: 28,
+    fontSize:Fonts.titleSize,
     textAlign: 'center',
-    color: '#333',
+    color:  Colors.text,
     fontWeight:'bold',
   },
   bold: {
     fontWeight: 'bold',
   },
   subtitle: {
-    fontSize: 14,
-    color: '#555',
+    fontSize: Fonts.subtitleSize,
+    color:  Colors.subtitle,
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 40,
   },
   button: {
-    backgroundColor: '#9F6CF2',
+    backgroundColor:  Colors.primary,
     paddingVertical: 14,
     paddingHorizontal: 30,
     borderRadius: 30,
@@ -100,13 +102,13 @@ container: {
     paddingBottom: 10,
   },
   buttonText: {
-    color: '#fff',
+    color: Colors.buttonText,
     fontWeight: 'bold',
   },
   circle: {
     width: 120,
     height: 120,
-    backgroundColor: '#caa1ff',
+    backgroundColor:  Colors.circle,
     borderRadius: 60,
     position: 'absolute',
     
@@ -114,7 +116,7 @@ container: {
   circleSmall: {
     width: 40,
     height: 40,
-    backgroundColor: '#d99bff',
+    backgroundColor: Colors.circleSmall,
     borderRadius: 50,
     position: 'absolute',
   },
@@ -128,7 +130,7 @@ container: {
     borderBottomWidth: 20,
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
-    borderBottomColor: '#b264ff',
+    borderBottomColor: Colors.triangle,
     position: 'absolute',
     transform:[{rotate:'90deg'}],
 
@@ -144,7 +146,7 @@ container: {
     borderBottomWidth: 30,
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
-    borderBottomColor: '#ff9900',
+    borderBottomColor: Colors.triangleOrange,
     position: 'absolute',
     transform:[{rotate:'40deg'}],
     
@@ -153,20 +155,20 @@ container: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#fdbb9c',
+    backgroundColor: Colors.circleGradient,
     position: 'absolute',
   },
   zigzag: {
     width: 10,
     height: 60,
-    backgroundColor: '#ff3b6c',
+    backgroundColor: Colors.zigzag,
     transform: [{ rotate: '45deg' }],
     position: 'absolute',
   },
    zigzagSmall: {
     width: 40,
     height: 3,
-    backgroundColor: '#8b5cf6',
+    backgroundColor: Colors.zigzagSmall,
     transform: [{ rotate: '-20deg' }],
     position: 'absolute',
   },
@@ -176,7 +178,7 @@ container: {
     height: 40,
     borderRadius: 20,
     borderWidth: 4,
-    borderColor: '#ff7e00',
+    borderColor:  Colors.orangeRing,
     backgroundColor: 'transparent',
   },
 

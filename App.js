@@ -1,10 +1,7 @@
 import React from 'react';
 import {
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
-  useColorScheme,
   View,
 } from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -18,7 +15,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 // import Screen1 from './src/Screen1';
-//import Screen2 from './src/Screen2';
+// import Screen2 from './src/Screen2';
 // import Screen3 from './src/Screen3';
 // import Screen4 from './src/Screen4';
 // import Screen5 from './src/Screen5';
@@ -27,6 +24,12 @@ import {
 // import Screen8 from './src/Screen8';
 // import Screen9 from './src/Screen9';
 // import Screen10 from './src/Screen10';
+// import Screen11 from './src/Screen11';
+// import Screen12 from './src/Screen12';
+// import Screen13 from './src/Screen13';
+// import Screen14 from './src/Screen14';
+// import Screen15 from './src/Screen15';
+import Screen16 from './src/Screen16';
 // import Screen12 from './src/Screen12';
 // import Screen13 from './src/Screen13';
 // import Screen11 from './src/Screen11';
@@ -42,7 +45,10 @@ import {
 // import Screen21 from './src/Screen21';
 // import Screen22 from './src/Screen22';
 // import Screen23 from './src/Screen23';
-import Screen24 from './src/Screen24';
+// import Screen24 from './src/Screen24';
+
+
+//import Screen24 from './src/Screen24';
 
 function App() {
   return (
@@ -66,6 +72,7 @@ function App() {
       {/* <Screen13/> */}
       {/* <Screen14/> */}
       {/* <Screen15/> */}
+      <Screen16/> 
       {/* <Screen16/>  */}
        {/* <Screen17/>  */}
        {/* <Screen18/>  */}
@@ -73,9 +80,7 @@ function App() {
        {/* <Screen20/>  */}
        {/* <Screen21/>  */}
        {/* <Screen23/>  */}
-       <Screen24/> 
-      
-
+       {/* <Screen24/>  */}
     </View>
     </GestureHandlerRootView>
   );

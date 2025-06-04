@@ -4,12 +4,13 @@ import {
   Text,
   TextInput,
   FlatList,
-  TouchableOpacity,
+
   StyleSheet,
   Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
 const messages = [
   {
     id: '1',
@@ -73,7 +74,7 @@ const MessagesScreen = () => {
           <Image source={item.avatar} style={styles.avatar} />
         ) : (
           <View style={styles.avatarPlaceholder}>
-            <Icon name="person-outline" size={24} color="#7D45FF" />
+            <Icon name="person-outline" size={Fonts.size} color={Colors.addicon} />
           </View>
         )}
         <View style={styles.messageContent}>
@@ -95,15 +96,15 @@ const MessagesScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
-        <Icon name="menu-outline" size={28} color="#000" />
-        <Icon name="add-outline" size={28} color="#000" />
+        <Icon name="menu-outline" size={Fonts.titleSize} color={Colors.text1} />
+        <Icon name="add-outline" size={Fonts.titleSize} color={Colors.text1} />
       </View>
 
       <View style={styles.searchContainer}>
-        <Icon name="search-outline" size={20} color="#888" />
+        <Icon name="search-outline" size={Fonts.headerFontSize} color={Colors.searchIcon} />
         <TextInput
           placeholder="Search"
-          placeholderTextColor="#888"
+          placeholderTextColor={Colors.searchIcon}
           style={styles.searchInput}
         />
       </View>
@@ -129,44 +130,44 @@ export default MessagesScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
     paddingHorizontal: 16,
-    paddingTop: 20,
+    paddingTop: Fonts.headerFontSize,
   },
   topBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: Fonts.headerFontSize,
   },
   searchContainer: {
     flexDirection: 'row',
-    backgroundColor: '#f1f1f1',
-    borderRadius: 20,
+    backgroundColor: Colors.searchbg,
+    borderRadius: Fonts.headerFontSize,
     paddingHorizontal: 12,
     alignItems: 'center',
     height: 40,
-    marginBottom: 20,
+    marginBottom: Fonts.headerFontSize,
   },
   searchInput: {
     marginLeft: 8,
     flex: 1,
-    fontSize: 14,
-    color: '#000',
+    fontSize: Fonts.subtitleSize,
+    color: Colors.text1,
   },
   tabs: {
     flexDirection: 'row',
-    marginBottom: 20,
+    marginBottom: Fonts.headerFontSize,
   },
   activeTab: {
-    color: '#7D45FF',
+    color: Colors.addicon,
     fontWeight: 'bold',
     marginRight: 16,
     borderBottomWidth: 2,
-    borderColor: '#7D45FF',
+    borderColor: Colors.addicon,
     paddingBottom: 4,
   },
   tab: {
-    color: '#888',
+    color: Colors.subtitle1,
     marginRight: 16,
   },
   messageRow: {
@@ -174,7 +175,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: Colors.border,
   },
   avatar: {
     width: 50,
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 10,
-    backgroundColor: '#eae6f8',
+    backgroundColor: Colors.placeholderBg,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -195,13 +196,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   name: {
-    fontWeight: 'bold',
-    fontSize: 15,
-    color: '#000',
+    fontWeight: Fonts.contactNameWeight,
+    fontSize: Fonts.contactNameSize,
+    color: Colors.text1,
   },
   message: {
-    fontSize: 13,
-    color: '#666',
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.subtitle1,
     marginTop: 2,
   },
   meta: {
@@ -209,19 +210,19 @@ const styles = StyleSheet.create({
   },
   date: {
     fontSize: 12,
-    color: '#999',
+    color: Colors.searchIcon,
   },
   unreadBadge: {
-    backgroundColor: '#7D45FF',
+    backgroundColor: Colors.addicon,
     borderRadius: 10,
-    width: 24,
-    height: 24,
+    width: Fonts.size,
+    height: Fonts.size,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 6,
   },
   unreadText: {
-    color: '#fff',
+    color: Colors.buttonText,
     fontWeight: 'bold',
     fontSize: 12,
   },

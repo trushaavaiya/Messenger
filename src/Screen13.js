@@ -11,6 +11,9 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
+
 const menuItems = [
   { title: 'Inbox' },
   { title: 'Archived' },
@@ -33,7 +36,7 @@ const messages = [
 ];
 
 const Sidebar = () => (
-  <LinearGradient colors={['#6a5afd', '#8360c3']} style={styles.sidebar}>
+  <LinearGradient colors={[Colors.primary1, Colors.purple]} style={styles.sidebar}>
     <View style={styles.logoContainer}>
       <Text style={styles.logo}>💬</Text>
       <Text style={styles.sidebarTitle}>Messages</Text>
@@ -72,31 +75,27 @@ const MessageItem = ({ item }) => (
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient colors={['#6a5afd', '#8360c3']} style={styles.container}>
+      <LinearGradient colors={[Colors.primary1, Colors.purple]} style={styles.container}>
         <View style={styles.mainContainer}>
           <Sidebar />
           <View style={styles.rightSideContainer}>
             <View style={styles.ghostSidebar} />
-
             <View style={styles.messagesPanel}>
               <View style={styles.topBar}>
                 <Text style={styles.hamburgerIcon}>☰</Text>
               </View>
-
               <View style={styles.searchBar}>
                 <Text style={styles.searchIcon}>🔍</Text>
                 <TextInput
                   placeholder="Search"
-                  placeholderTextColor="black"
+                  placeholderTextColor={Colors.searchIcon}
                   style={styles.searchInput}
                 />
               </View>
-
               <View style={styles.tabs}>
                 <Text style={styles.activeTab}>All Messages</Text>
                 <Text style={styles.inactiveTab}>Personal</Text>
               </View>
-
               <FlatList
                 data={messages}
                 keyExtractor={(item) => item.id}
@@ -120,12 +119,26 @@ const styles = StyleSheet.create({
     padding: 25,
     justifyContent: 'flex-start',
   },
-  logoContainer: { alignItems: 'center', marginBottom: -20 ,marginTop:60 },
-  logo: { fontSize: 40, color: 'white' },
-  sidebarTitle: { color: 'white', fontSize: 24, marginTop: 10, marginBottom: 25, fontWeight: '600' },
-  menuItem: { fontWeight: '600', fontSize: 16, color: 'white', marginBottom: 15 },
-  divider: { borderBottomColor: '#9e9eff66', borderBottomWidth: 1, marginVertical: 20 },
-
+  logoContainer: { alignItems: 'center', marginBottom: -20, marginTop: 60 },
+  logo: { fontSize: 40, color: Colors.buttonText },
+  sidebarTitle: {
+    color: Colors.buttonText,
+    fontSize: Fonts.titleSize,
+    marginTop: 10,
+    marginBottom: 25,
+    fontWeight: '600',
+  },
+  menuItem: {
+    fontWeight: Fonts.contactNameWeight,
+    fontSize: Fonts.contactNameSize,
+    color: Colors.buttonText,
+    marginBottom: 15,
+  },
+  divider: {
+    borderBottomColor: '#9e9eff66',
+    borderBottomWidth: 1,
+    marginVertical: 20,
+  },
   rightSideContainer: { flex: 2, position: 'relative' },
   ghostSidebar: {
     position: 'absolute',
@@ -142,7 +155,7 @@ const styles = StyleSheet.create({
   messagesPanel: {
     flex: 0.7,
     top: 100,
-    backgroundColor: 'white',
+    backgroundColor: Colors.background,
     borderTopLeftRadius: 25,
     borderBottomLeftRadius: 25,
     paddingHorizontal: 20,
@@ -161,36 +174,48 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   hamburgerIcon: {
-    fontSize: 24,
-    color: '#6a5afd',
+    fontSize: Fonts.headerFontSize,
+    color: Colors.primary1,
   },
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f2f2f7',
+    backgroundColor: Colors.searchbg,
     borderRadius: 25,
-    width: '100%', 
-    maxWidth: 400, 
+    width: '100%',
+    maxWidth: 400,
     alignSelf: 'center',
     paddingHorizontal: 20,
     paddingVertical: 4,
     marginBottom: 15,
-    paddingRight:0
   },
   searchIcon: {
     fontSize: 16,
     marginRight: 8,
+    color: Colors.searchIcon,
   },
-  searchInput: { fontSize: 14, flex: 1 },
+  searchInput: {
+    fontSize: Fonts.searchFontSize,
+    flex: 1,
+    color: Colors.text,
+  },
   tabs: { flexDirection: 'row', marginBottom: 15 },
-  activeTab: { marginRight: 15, fontSize: 14, color: '#6a5afd', fontWeight: 'bold' },
-  inactiveTab: { fontSize: 14, color: '#9e9eff' },
+  activeTab: {
+    marginRight: 15,
+    fontSize: Fonts.tabFontSize,
+    color: Colors.primary1,
+    fontWeight: 'bold',
+  },
+  inactiveTab: {
+    fontSize: Fonts.tabFontSize,
+    color: Colors.inactiveTab,
+  },
   messageList: { paddingVertical: 15 },
   messageItem: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 12,
-    borderBottomColor: '#eee',
+    borderBottomColor: Colors.border,
     borderBottomWidth: 1,
   },
   avatar: { width: 40, height: 40, borderRadius: 10 },
@@ -198,14 +223,22 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 10,
-    backgroundColor: '#e7e7ff',
+    backgroundColor: Colors.placeholderBg,
     justifyContent: 'center',
     alignItems: 'center',
   },
   defaultAvatarIcon: {
     fontSize: 24,
-    color: '#6a5afd',
+    color: Colors.primary1,
   },
-  messageName: { fontWeight: '700', fontSize: 15 },
-  messageText: { fontSize: 13, color: '#666', marginTop: 3 },
+  messageName: {
+    fontWeight: Fonts.contactNameWeight,
+    fontSize: Fonts.contactNameSize,
+    color: Colors.text,
+  },
+  messageText: {
+    fontSize: Fonts.contactPhoneSize,
+    color: Colors.messageText,
+    marginTop: 3,
+  },
 });

@@ -12,6 +12,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
+
 const data = [
   {
     id: '1',
@@ -93,7 +96,7 @@ const ChatListScreen = () => {
           <Image source={item.avatar} style={styles.avatar} />
         ) : (
           <View style={styles.placeholderAvatar}>
-            <Icon name="person-outline" size={28} color="#7D45FF" />
+            <Icon name="person-outline" size={Fonts.titleSize} color={Colors.accentPurple} />
           </View>
         )}
       </View>
@@ -102,8 +105,9 @@ const ChatListScreen = () => {
           style={[
             styles.name,
             {
-              color: item.unread ? '#7D45FF' : '#fff',
+              color: item.unread ? Colors.accentPurple : Colors.buttonText,
               fontSize: dynamicFontSize,
+              fontFamily: Fonts.bold,
             },
           ]}
           numberOfLines={1}
@@ -111,13 +115,27 @@ const ChatListScreen = () => {
           {item.name}
         </Text>
         <Text
-          style={[styles.lastMessage, { fontSize: dynamicSmallFontSize }]}
+          style={[
+            styles.lastMessage,
+            {
+              fontSize: dynamicSmallFontSize,
+              fontFamily: Fonts.regular,
+            },
+          ]}
           numberOfLines={1}
         >
           {item.lastMessage}
         </Text>
       </View>
-      <Text style={[styles.dateText, { fontSize: dynamicDateFontSize }]}>
+      <Text
+        style={[
+          styles.dateText,
+          {
+            fontSize: dynamicDateFontSize,
+            fontFamily: Fonts.regular,
+          },
+        ]}
+      >
         {item.date}
       </Text>
     </TouchableOpacity>
@@ -127,19 +145,24 @@ const ChatListScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity>
-          <Icon name="menu-outline" size={28} color="#7D45FF" />
+          <Icon name="menu-outline" size={Fonts.titleSize} color={Colors.accentPurple} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Icon name="add-outline" size={28} color="#7D45FF" />
+          <Icon name="add-outline" size={Fonts.titleSize} color={Colors.accentPurple} />
         </TouchableOpacity>
       </View>
 
       <View style={styles.searchContainer}>
-        <Icon name="search-outline" size={20} color="#bbb" style={{ marginRight: 8 }} />
+        <Icon
+          name="search-outline"
+          size={20}
+          color={Colors.searchIcon}
+          style={{ marginRight: 8 }}
+        />
         <TextInput
           style={styles.searchInput}
           placeholder="Search"
-          placeholderTextColor="#bbb"
+          placeholderTextColor={Colors.lightText}
           value={search}
           onChangeText={setSearch}
         />
@@ -181,7 +204,7 @@ export default ChatListScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: Colors.darkBackground,
   },
   header: {
     height: 60,
@@ -192,7 +215,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     flexDirection: 'row',
-    backgroundColor: '#1a1a1a',
+    backgroundColor: Colors.background2,
     marginHorizontal: 16,
     borderRadius: 20,
     paddingHorizontal: 12,
@@ -202,15 +225,15 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    fontSize: 16,
-    color: '#fff',
+    fontSize: Fonts.searchFontSize,
+    color: Colors.buttonText,
   },
   tabsContainer: {
     flexDirection: 'row',
     marginHorizontal: 16,
     justifyContent: 'flex-start',
     borderBottomWidth: 1,
-    borderBottomColor: '#333',
+    borderBottomColor: Colors.lightBorder,
   },
   tab: {
     alignItems: 'center',
@@ -218,18 +241,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabText: {
-    color: '#aaa',
+    color: Colors.inactiveTab,
     fontWeight: '600',
+    fontSize: Fonts.tabFontSize,
   },
   activeTabText: {
-    color: '#7D45FF',
+    color: Colors.accentPurple,
     fontWeight: '700',
   },
   tabUnderline: {
     marginTop: 4,
     height: 3,
     width: '60%',
-    backgroundColor: '#7D45FF',
+    backgroundColor: Colors.accentPurple,
     borderRadius: 2,
   },
   listItem: {
@@ -237,7 +261,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#222',
+    borderBottomColor: Colors.divider,
   },
   avatarContainer: {
     marginRight: 12,
@@ -251,7 +275,7 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     borderRadius: 10,
-    backgroundColor: '#2a2a2a',
+    backgroundColor: Colors.background3,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -262,12 +286,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   lastMessage: {
-    color: '#bbb',
+    color: Colors.messageText,
     marginTop: 2,
   },
   dateText: {
-    color: '#ddd',
+    color: Colors.lightText,
     marginLeft: 10,
-    fontSize:14,
   },
 });

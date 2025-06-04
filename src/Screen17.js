@@ -13,6 +13,8 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Swipeable } from 'react-native-gesture-handler';
 
+import Colors from './constants/colors';
+
 const initialMessages = [
   {
     id: '1',
@@ -74,14 +76,14 @@ const MessagesScreen = () => {
   const isDarkMode = colorScheme === 'dark';
 
   const theme = {
-    background: isDarkMode ? '#121212' : '#fff',
-    text: isDarkMode ? '#fff' : '#000',
-    secondaryText: isDarkMode ? '#aaa' : '#666',
-    placeholder: isDarkMode ? '#333' : '#f0f0f0',
-    border: isDarkMode ? '#333' : '#eee',
-    searchText: isDarkMode ? '#ccc' : '#000',
-    inputBg: isDarkMode ? '#1e1e1e' : '#f0f0f0',
-    tabInactive: isDarkMode ? '#aaa' : '#888',
+    background: isDarkMode ? Colors.darkBackground : Colors.background,
+    text: isDarkMode ? Colors.buttonText : Colors.text,
+    secondaryText: isDarkMode ? Colors.lightText : Colors.subtitle,
+    placeholder: isDarkMode ? Colors.lightBorder : Colors.placeholderBg,
+    border: isDarkMode ? Colors.lightBorder : Colors.border,
+    searchText: isDarkMode ? Colors.lightText : Colors.text,
+    inputBg: isDarkMode ? Colors.background3 : Colors.searchbg,
+    tabInactive: isDarkMode ? Colors.lightText : Colors.inactiveTab,
   };
 
   const [messages, setMessages] = useState(initialMessages);
@@ -120,58 +122,55 @@ const MessagesScreen = () => {
       style={styles.deleteButtonSwipe}
       onPress={() => handleDelete(item.id)}
     >
-      <Icon name="trash-outline" size={24} color="#fff" />
+      <Icon name="trash-outline" size={24} color={Colors.buttonText} />
     </TouchableOpacity>
   );
 
-  const renderItem = ({ item }) => {
-    return (
-      <Swipeable
-        ref={(ref) => {
-          if (ref && item.id) {
-            swipeableRefs.current.set(item.id, ref);
+  const renderItem = ({ item }) => (
+    <Swipeable
+      ref={(ref) => {
+        if (ref && item.id) {
+          swipeableRefs.current.set(item.id, ref);
+        }
+      }}
+      renderRightActions={() => renderRightActions(item)}
+      onSwipeableWillOpen={() => {
+        swipeableRefs.current.forEach((ref, key) => {
+          if (key !== item.id && ref && ref.close) {
+            ref.close();
           }
-        }}
-        renderRightActions={() => renderRightActions(item)}
-        onSwipeableWillOpen={() => {
-          // Close other swipeables when one is opened
-          swipeableRefs.current.forEach((ref, key) => {
-            if (key !== item.id && ref && ref.close) {
-              ref.close();
-            }
-          });
-        }}
-      >
-        <View style={[styles.item, { borderBottomColor: theme.border, backgroundColor: theme.background }]}>
-          <View style={styles.avatarContainer}>
-            {item.avatar ? (
-              <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
-            ) : (
-              <View style={[styles.placeholderAvatar, { backgroundColor: theme.placeholder }]}>
-                <Icon name="person" size={24} color={theme.secondaryText} />
-              </View>
-            )}
-          </View>
-
-          <View style={styles.messageContent}>
-            <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
-            <Text style={[styles.message, { color: theme.secondaryText }]} numberOfLines={1}>
-              {item.message}
-            </Text>
-          </View>
-
-          <View style={styles.meta}>
-            <Text style={[styles.date, { color: theme.secondaryText }]}>{item.date}</Text>
-            {item.unreadCount > 0 && (
-              <View style={styles.unreadBadge}>
-                <Text style={styles.unreadText}>{item.unreadCount}</Text>
-              </View>
-            )}
-          </View>
+        });
+      }}
+    >
+      <View style={[styles.item, { borderBottomColor: theme.border, backgroundColor: theme.background }]}>
+        <View style={styles.avatarContainer}>
+          {item.avatar ? (
+            <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
+          ) : (
+            <View style={[styles.placeholderAvatar, { backgroundColor: theme.placeholder }]}>
+              <Icon name="person" size={24} color={theme.secondaryText} />
+            </View>
+          )}
         </View>
-      </Swipeable>
-    );
-  };
+
+        <View style={styles.messageContent}>
+          <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
+          <Text style={[styles.message, { color: theme.secondaryText }]} numberOfLines={1}>
+            {item.message}
+          </Text>
+        </View>
+
+        <View style={styles.meta}>
+          <Text style={[styles.date, { color: theme.secondaryText }]}>{item.date}</Text>
+          {item.unreadCount > 0 && (
+            <View style={styles.unreadBadge}>
+              <Text style={styles.unreadText}>{item.unreadCount}</Text>
+            </View>
+          )}
+        </View>
+      </View>
+    </Swipeable>
+  );
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
@@ -190,7 +189,7 @@ const MessagesScreen = () => {
       </View>
 
       <View style={styles.tabs}>
-        <Text style={[styles.activeTab, { borderColor: '#7D45FF', color: '#7D45FF' }]}>All Messages</Text>
+        <Text style={[styles.activeTab, { borderColor: Colors.addicon, color: Colors.addicon }]}>All Messages</Text>
         <Text style={[styles.tab, { color: theme.tabInactive }]}>Personal</Text>
         <Text style={[styles.tab, { color: theme.tabInactive }]}>Business</Text>
       </View>
@@ -294,7 +293,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   unreadBadge: {
-    backgroundColor: '#7D45FF',
+    backgroundColor: Colors.addicon,
     borderRadius: 12,
     width: 24,
     height: 24,
@@ -302,12 +301,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   unreadText: {
-    color: '#fff',
+    color: Colors.buttonText,
     fontSize: 12,
     fontWeight: 'bold',
   },
   deleteButtonSwipe: {
-    backgroundColor: '#FF3B30',
+    backgroundColor: Colors.deleteRed,
     justifyContent: 'center',
     alignItems: 'center',
     width: 60,

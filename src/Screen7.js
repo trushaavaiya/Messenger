@@ -12,6 +12,9 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import Colors from './constants/colors';
+import Fonts from './constants/fonts';
+
 const messagesData = [
   { id: '1', text: "How's the concept?", sender: 'me', date: 'Tomorrow' },
   {
@@ -22,7 +25,7 @@ const messagesData = [
   },
   {
     id: '3',
-    text: 'Will catch up tomorrow at wendy’s 9 in the morning... C ya!',
+    text: 'Will catch up tomorrow at Wendy’s 9 in the morning... C ya!',
     sender: 'other',
     date: 'Tomorrow',
   },
@@ -72,7 +75,7 @@ const ChatScreen = () => {
         >
           {item.sender === 'me' ? (
             <LinearGradient
-              colors={['#9D4EDD', '#7D45FF']}
+              colors={[Colors.primary, Colors.addicon]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
               style={styles.sentBubble}
@@ -96,15 +99,19 @@ const ChatScreen = () => {
       keyboardVerticalOffset={80}
     >
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={() => {/* add back navigation logic here */}}>
-         <Icon name="chevron-back" size={28} color="#000" />
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => {
+            // Add back navigation logic here
+          }}
+        >
+          <Icon name="chevron-back" size={28} color={Colors.text1} />
         </TouchableOpacity>
         <View style={styles.nameBox}>
-        <Text style={styles.title}>Aajaybhai</Text>
+          <Text style={styles.title}>Aajaybhai</Text>
         </View>
-         <Icon name="person-add-outline" size={20} color="#000" />
-        </View>
-
+        <Icon name="person-outline" size={20} color={Colors.text1} />
+      </View>
 
       <FlatList
         data={messagesData}
@@ -113,55 +120,47 @@ const ChatScreen = () => {
         contentContainerStyle={{ padding: 16 }}
       />
 
-      <View style={styles.messageInputContainer}>
-                    <View style={styles.inputWithIcon}>
-                      <Icon name="add" size={24} color="#FFA500" style={styles.addInsideIcon} />
-                      <TextInput
-                        style={styles.messageInput}
-                        placeholder="Type your message here"
-                        placeholderTextColor="#ccc"
-                        value={input}
-                        onChangeText={setInput}
-                      />
-                      <TouchableOpacity style={styles.sendButton}>
-                        <Icon name="send" size={22} color="white" />
-                      </TouchableOpacity>
-                    </View>
-                  </View>
+      <View style={styles.inputContainer}>
+        <TouchableOpacity>
+          <Icon name="add-outline" size={Fonts.size} color={Colors.addicon} />
+        </TouchableOpacity>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Type your message here"
+          placeholderTextColor={Colors.searchIcon}
+          value={input}
+          onChangeText={setInput}
+        />
+        <TouchableOpacity>
+          <Icon name="send" size={22} color={Colors.addicon} />
+        </TouchableOpacity>
+      </View>
     </KeyboardAvoidingView>
   );
 };
 
 export default ChatScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
   },
  
   nameBox: {
-    backgroundColor: '#f0f0f0', // light grey
+    backgroundColor: Colors.placeholderBg,
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 10,
   },
   backButton: {
-  marginRight: 12,
-  padding: 4,
-},
-header: {
-  paddingTop: 30,
-  paddingBottom: 12,
-  paddingHorizontal: 16,
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-},
-
+    marginRight: 12,
+    padding: 4,
+  },
   title: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#000',
+    fontSize: Fonts.headerFontSize,
+    fontWeight: Fonts.headerFontWeight,
+    color: Colors.text1,
   },
   messageContainer: {
     marginVertical: 10,
@@ -180,19 +179,19 @@ header: {
     borderBottomRightRadius: 0,
   },
   sentText: {
-    color: '#fff',
-    fontSize: 14,
+    color: Colors.buttonText,
+    fontSize: Fonts.subtitleSize,
   },
   receivedBubble: {
-    backgroundColor: '#f1f1f1',
+    backgroundColor: Colors.searchbg,
     padding: 12,
     borderRadius: 18,
     maxWidth: '80%',
     borderBottomLeftRadius: 0,
   },
   receivedText: {
-    fontSize: 14,
-    color: '#000',
+    fontSize: Fonts.subtitleSize,
+    color: Colors.text,
   },
   dateSeparator: {
     flexDirection: 'row',
@@ -202,12 +201,12 @@ header: {
   },
   separatorLine: {
     height: 1,
-    backgroundColor: '#ccc',
+    backgroundColor: Colors.borderline,
     flex: 1,
     marginHorizontal: 10,
   },
   dateText: {
-    color: '#aaa',
+    color: Colors.subtitle1,
     fontSize: 12,
   },
  messageInputContainer: {
@@ -216,63 +215,16 @@ header: {
     paddingHorizontal: 16,
     paddingVertical: 20,
     borderTopWidth: 0,
-    borderTopColor: "#333",
-    backgroundColor: "white",
+    borderTopColor: Colors.border,
+    gap: 8,
   },
-  inputWithIcon: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#f2f2f2",
-    borderRadius: 20,
+  textInput: {
     flex: 1,
-    marginRight: 8,
-    paddingHorizontal: 12,
-    borderRadius:15,
-  },
-  addInsideIcon: {
-    marginRight: 8,
-  },
-  messageInput: {
-    flex: 1,
-    fontSize: 16,
-    color: "#fff",
-    paddingVertical: 12,
-  },
-  sendButton: {
-    backgroundColor: "#7D45FF",
+    backgroundColor: Colors.searchbg,
     borderRadius: 20,
-    width: 35,
-    height: 35,
-    alignItems: "center",
-    justifyContent: "center",
-    borderTopRightRadius: 0,
-    transform: [{ rotate: "-0deg" }],
-  },
-  inputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    paddingVertical: 12,
-    borderTopWidth: 0,
-    borderTopColor: "#333",
-    backgroundColor: "white",
-  },
-  iconButton: {
-    alignItems: "center",
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 10,
-  },
-  iconLabel: {
-    fontSize: 10,
-    color: "#fff",
-    marginTop: 4,
-  },
-  iconLabel: {
-    fontSize: 10,
-    color: "#555",
-    marginTop: 4,
-  },
-  iconButtonActive: {
-    backgroundColor: "#7D45FF",
+    paddingHorizontal: 28,
+    fontSize: Fonts.subtitleSize,
+    height: 40,
+    color: Colors.text1,
   },
 });

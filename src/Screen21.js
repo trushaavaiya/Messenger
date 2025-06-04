@@ -9,6 +9,7 @@ import {
   Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Colors from './constants/colors';
 
 const messages = [
   { id: 1, name: '+91 87444 87846', message: 'okay, i will manage', date: '08, Dec', avatar: null },
@@ -22,15 +23,15 @@ const MessageApp = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Icon name="menu" size={24} color="#7D45FF" />
-        <Icon name="add" size={24} color="#7D45FF" />
+        <Icon name="menu" size={24} color={Colors.addicon} />
+        <Icon name="add" size={24} color={Colors.addicon} />
       </View>
 
       <View style={styles.searchContainer}>
-        <Icon name="search-outline" size={20} color="#666" />
+        <Icon name="search-outline" size={20} color={Colors.searchIcon} />
         <TextInput
           placeholder="Search"
-          placeholderTextColor="#666"
+          placeholderTextColor={Colors.searchIcon}
           style={styles.searchInput}
         />
       </View>
@@ -67,14 +68,14 @@ const MessageApp = () => {
               <Image source={{ uri: item.avatar }} style={styles.avatar} />
             ) : (
               <View style={styles.avatarPlaceholder}>
-                <Icon name="person-outline" size={24} color="#7D45FF" />
+                <Icon name="person-outline" size={24} color={Colors.addicon} />
               </View>
             )}
             <View style={styles.messageTextContainer}>
               <Text
                 style={[
                   styles.messageName,
-                  item.name.startsWith('+91') && { color: '#7D45FF' }, 
+                  item.name.startsWith('+91') && { color: Colors.accentPurple },
                 ]}
                 numberOfLines={1}
               >
@@ -97,7 +98,7 @@ export default MessageApp;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212', 
+    backgroundColor: Colors.darkBackground2,
     paddingHorizontal: 15,
     paddingTop: 10,
   },
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     flexDirection: 'row',
-    backgroundColor: '#222', 
+    backgroundColor: Colors.searchContainerBg,
     paddingHorizontal: 15,
     paddingVertical: 8,
     alignItems: 'center',
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
   searchInput: {
     marginLeft: 10,
     flex: 1,
-    color: '#eee',
+    color: Colors.lightGray,
   },
   tabs: {
     flexDirection: 'row',
@@ -131,18 +132,18 @@ const styles = StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   tabActive: {
-    borderBottomColor: '#7D45FF',
+    borderBottomColor: Colors.accentPurple,
   },
   tabText: {
     fontSize: 14,
-    color: '#888',
+    color: Colors.inactiveTab,
   },
   tabTextActive: {
-    color: '#7D45FF',
+    color: Colors.accentPurple,
     fontWeight: 'bold',
   },
   banner: {
-    backgroundColor: '#3B2F1D', 
+    backgroundColor: Colors.bannerBg,
     borderRadius: 12,
     padding: 20,
     marginTop: 25,
@@ -150,12 +151,12 @@ const styles = StyleSheet.create({
   bannerTitle: {
     fontWeight: 'bold',
     fontSize: 15,
-    color: '#fff',
+    color: Colors.headerText,
     marginBottom: 2,
   },
   bannerSubtitle: {
     fontSize: 13,
-    color: '#B6A67F',
+    color: Colors.bannerSubtitleColor,
   },
   bannerButtons: {
     flexDirection: 'row',
@@ -163,12 +164,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   changeButton: {
-    color: '#7D45FF',
+    color: Colors.accentPurple,
     marginRight: 20,
     fontWeight: 'bold',
   },
   notNowButton: {
-    color: '#999',
+    color: Colors.inactiveTab,
   },
   messageList: {
     marginTop: 20,
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 0,
-    backgroundColor: '#222',
+    backgroundColor: Colors.background2,
     borderRadius: 15,
     padding: 12,
   },
@@ -191,8 +192,8 @@ const styles = StyleSheet.create({
   avatarPlaceholder: {
     width: 60,
     height: 60,
-    borderRadius: 10,
-    backgroundColor: '#101', 
+    borderRadius: 14,
+    backgroundColor: Colors.avatarPlaceholderBg,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 15,
@@ -203,14 +204,14 @@ const styles = StyleSheet.create({
   messageName: {
     fontWeight: 'bold',
     fontSize: 16,
-    color: '#fff',
+    color: Colors.background,
   },
   messagePreview: {
-    color: '#999',
+    color: Colors.messageText,
     marginTop: 3,
   },
   messageDate: {
     fontSize: 12,
-    color: '#666',
+    color: Colors.subtitle1,
   },
 });
