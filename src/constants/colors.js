@@ -42,6 +42,7 @@ const Colors = {
   background1:'#ffffff20',
   background2:'#1a1a1a',
   background3:'#2e2e2e',
+  background4:'#ffffff80',
 
   darkBackground: '#000',
   lightBorder: '#333',
