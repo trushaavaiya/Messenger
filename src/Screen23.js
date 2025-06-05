@@ -28,6 +28,8 @@ const SettingsScreen = () => {
 
       <Text style={styles.sectionHeader}>Appearance</Text>
 
+{/* we should be able to change this part */}
+
       <View style={styles.settingRow}>
         <Icon name="gavel" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
@@ -48,7 +50,7 @@ const SettingsScreen = () => {
           thumbColor={pureBlackMode ? Colors.buttonText : Colors.grayTextLight}
         />
       </View>
-
+{/* we should be able to change this part */}
       <View style={styles.settingRow}>
         <Icon name="format-size" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
@@ -78,7 +80,7 @@ const SettingsScreen = () => {
           <Text style={styles.settingTitle}>Notifications</Text>
         </View>
       </View>
-
+{/* we should be able to change this part */}
       <View style={styles.settingRow}>
         <Icon name="timer-outline" size={22} color={Colors.lightText} style={styles.icon} />
         <View style={styles.settingTextContainer}>
@@ -94,6 +96,7 @@ const SettingsScreen = () => {
           color={Colors.lightText}
           style={styles.icon}
         />
+{/*        we should be able to change this part  */}
         <View style={styles.settingTextContainer}>
           <Text style={styles.settingTitle}>Swipe actions</Text>
           <Text style={styles.settingSubtitle}>
