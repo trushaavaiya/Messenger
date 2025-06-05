@@ -17,7 +17,7 @@ import {
 // import Screen1 from './src/Screen1';
 // import Screen2 from './src/Screen2';
 // import Screen3 from './src/Screen3';
-// import Screen4 from './src/Screen4';
+import Screen4 from './src/Screen4';
 // import Screen5 from './src/Screen5';
 // import Screen6 from './src/Screen6';
 // import Screen7 from './src/Screen7';
@@ -29,7 +29,7 @@ import {
 // import Screen13 from './src/Screen13';
 // import Screen14 from './src/Screen14';
 // import Screen15 from './src/Screen15';
-import Screen16 from './src/Screen16';
+// import Screen16 from './src/Screen16';
 // import Screen12 from './src/Screen12';
 // import Screen13 from './src/Screen13';
 // import Screen11 from './src/Screen11';
@@ -60,7 +60,7 @@ function App() {
       {/* <Screen1/> */}
       {/* <Screen2/> */}
       {/* <Screen3/> */}
-      {/* <Screen4/> */}
+      <Screen4 />
       {/* <Screen5/> */}
       {/* <Screen6/> */}
       {/* <Screen7/> */}
@@ -72,7 +72,7 @@ function App() {
       {/* <Screen13/> */}
       {/* <Screen14/> */}
       {/* <Screen15/> */}
-      <Screen16/> 
+      {/* <Screen16/>  */}
       {/* <Screen16/>  */}
        {/* <Screen17/>  */}
        {/* <Screen18/>  */}
