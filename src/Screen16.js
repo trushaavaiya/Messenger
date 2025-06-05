@@ -97,7 +97,7 @@ export default function ChatScreen() {
           </TouchableOpacity>
         </View>
       </View>
-
+{/* we should be able to change this part */}
       <View style={styles.inputContainer}>
         <TouchableOpacity style={styles.iconButton}>
           <Icon name="camera-outline" size={28} color={Colors.buttonText} />
