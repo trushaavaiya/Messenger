@@ -78,6 +78,7 @@ const SettingsScreen = () => {
         </View>
       </View>
 
+      {/* we should be able to change this part */}
       <View style={styles.settingRow}>
         <Icon name="timer-outline" size={22} color={Colors.inactiveTab} style={styles.icon} />
         <View style={styles.settingTextContainer}>

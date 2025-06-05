@@ -13,7 +13,6 @@ import Fonts from './constants/fonts';
 import Colors from './constants/colors';
 import { Swipeable } from 'react-native-gesture-handler';
 
-
 const messages = [
   {
     id: '1',
@@ -63,8 +62,8 @@ const messages = [
   {
     id: '7',
     name: 'Julia Ambriz',
-    message: 'send me all picsin last night in ws.',
-    date: '03, Dec',
+    message: 'Send me all pics in last night in ws.',
+    date: '01, Dec',
     unreadCount: 0,
     avatar: null,
   },
@@ -79,32 +78,34 @@ const MessagesScreen = () => {
       <Icon name="trash-outline" size={24} color="red" />
     </TouchableOpacity>
   );
+
   const renderItem = ({ item }) => {
     return (
-      <Swipeable style={styles.item}>
-        <View style={styles.avatarContainer}>
-          {item.avatar ? (
-            <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
-          ) : (
-            <View style={styles.placeholderAvatar}>
-              <Icon name="person" size={Fonts.size} color={Colors.subtitle1} />
-            </View>
-          )}
-        </View>
+      <Swipeable renderRightActions={() => renderRightActions(item)}>
+        <View style={styles.item}>
+          <View style={styles.avatarContainer}>
+            {item.avatar ? (
+              <Image source={item.avatar} style={styles.avatar} resizeMode="cover" />
+            ) : (
+              <View style={styles.placeholderAvatar}>
+                <Icon name="person" size={24} color={Colors.subtitle1} />
+              </View>
+            )}
+          </View>
 
           <View style={styles.messageContent}>
             <Text style={styles.name}>{item.name}</Text>
             <Text style={styles.message}>{item.message}</Text>
           </View>
 
-        <View style={styles.meta}>
-          <Text style={styles.date}>{item.date}</Text>
-          {item.unreadCount > 0 && (
-            <View style={styles.unreadBadge}>
-              <Text style={styles.unreadText}>{item.unreadCount}</Text>
-            </View>
-          )}
-          
+          <View style={styles.meta}>
+            <Text style={styles.date}>{item.date}</Text>
+            {item.unreadCount > 0 && (
+              <View style={styles.unreadBadge}>
+                <Text style={styles.unreadText}>{item.unreadCount}</Text>
+              </View>
+            )}
+          </View>
         </View>
       </Swipeable>
     );
@@ -118,7 +119,12 @@ const MessagesScreen = () => {
       </View>
 
       <View style={styles.searchBar}>
-        <Icon name="search-outline" size={Fonts.headerFontSize} color={Colors.searchIcon} style={styles.searchIcon} />
+        <Icon
+          name="search-outline"
+          size={Fonts.headerFontSize}
+          color={Colors.searchIcon}
+          style={styles.searchIcon}
+        />
         <TextInput
           style={styles.searchInput}
           placeholder="Search"
@@ -148,23 +154,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
+    paddingTop: 50,
     paddingHorizontal: 16,
-    paddingTop: 30,
   },
   header: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 16,
   },
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: Colors.searchbg,
-    borderRadius: Fonts.headerFontSize,
+    borderRadius: 20,
     paddingHorizontal: 12,
-    height: 36,
-    marginBottom: Fonts.headerFontSize,
+    height: 40,
+    marginBottom: 20,
   },
   searchIcon: {
     marginRight: 8,
@@ -176,45 +182,50 @@ const styles = StyleSheet.create({
   },
   tabs: {
     flexDirection: 'row',
-    marginBottom: Fonts.headerFontSize,
+    marginBottom: 16,
   },
   activeTab: {
-    marginRight: Fonts.headerFontSize,
+    marginRight: 20,
     fontWeight: 'bold',
+    fontSize: 14,
     color: Colors.addicon,
     borderBottomWidth: 2,
-    borderColor: Colors.addicon,
-    paddingBottom: 4,
+    borderBottomColor: Colors.addicon,
+    paddingBottom: 6,
   },
   tab: {
-    marginRight: Fonts.headerFontSize,
+    marginRight: 20,
+    fontSize: 14,
     color: Colors.subtitle1,
+    paddingBottom: 6,
   },
   item: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    paddingVertical: 10,
+    alignItems: 'center',
+    paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: Colors.border,
+    backgroundColor: Colors.background,
   },
   avatarContainer: {
     marginRight: 12,
   },
   avatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 10,
+    width: 50,
+    height: 50,
+    borderRadius: 12,
   },
   placeholderAvatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 10,
+    width: 50,
+    height: 50,
+    borderRadius: 12,
     backgroundColor: Colors.placeholderBg,
     alignItems: 'center',
     justifyContent: 'center',
   },
   messageContent: {
     flex: 1,
+    justifyContent: 'center',
   },
   name: {
     fontWeight: Fonts.contactNameWeight,
@@ -224,32 +235,38 @@ const styles = StyleSheet.create({
   message: {
     fontSize: Fonts.contactPhoneSize,
     color: Colors.subtitle1,
-    marginTop: 2,
+    marginTop: 4,
   },
   meta: {
     alignItems: 'flex-end',
     justifyContent: 'space-between',
-    height: 60,
+    height: 50,
   },
   date: {
     fontSize: 12,
     color: Colors.searchIcon,
   },
   unreadBadge: {
+    marginTop: 4,
     backgroundColor: Colors.addicon,
     borderRadius: 12,
-    width: Fonts.size,
-    height: Fonts.size,
+    width: 24,
+    height: 24,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 4,
   },
   unreadText: {
     color: Colors.buttonText,
     fontSize: 12,
     fontWeight: 'bold',
   },
-  rightTrashIcon: {
-    marginTop: 8,
+  deleteAction: {
+    backgroundColor: '#FCEAEA',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 60,
+    height: '100%',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
   },
 });

@@ -35,7 +35,7 @@ const BackupRestoreScreen = () => {
           )}
         </View>
       </View>
-
+{/* we should be able to change this part */}
       <View style={styles.section}>
         <Icon name="people-outline" size={24} color={Colors.buttonText} />
         <View style={styles.textContainer}>
