@@ -69,7 +69,7 @@ const messages = [
   },
 ];
 
-const MessagesScreen = () => {
+const MessagesScreen = ({navigation}) => {
   const renderRightActions = (item) => (
     <TouchableOpacity
       style={styles.deleteAction}
@@ -82,6 +82,7 @@ const MessagesScreen = () => {
   const renderItem = ({ item }) => {
     return (
       <Swipeable renderRightActions={() => renderRightActions(item)}>
+         <TouchableOpacity onPress={() => navigation.navigate('Screen7', { name: item.name })}>
         <View style={styles.item}>
           <View style={styles.avatarContainer}>
             {item.avatar ? (
@@ -107,6 +108,7 @@ const MessagesScreen = () => {
             )}
           </View>
         </View>
+        </TouchableOpacity>
       </Swipeable>
     );
   };
