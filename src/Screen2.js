@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {
   View,
   Image,
@@ -10,21 +10,28 @@ import Colors from './constants/colors';
 
 const { width, height } = Dimensions.get('window');
 
-export default function App() {
+export default function App({navigation}) {
+   useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace('Screen3');
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [navigation]);
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={Colors.background} barStyle="dark-content" />
 
-      <View style={[styles.circle, { top: 50, left: -50 }]} />
-      <View style={[styles.smallCircle, { bottom: 60, left: 20 }]} />
-      <View style={[styles.gradientCircle, { bottom: 30, right: -30 }]} />
+      <View style={[styles.circle]} />
+      <View style={[styles.smallCircle]} />
+      <View style={[styles.gradientCircle]} />
 
-      <View style={[styles.zigzag, { top: 300, left: 30 }]} />
-      <View style={[styles.zigzag, { bottom: 180, right: 100, transform: [{ rotate: '-45deg' }] }]} />
+      <View style={[styles.zigzag ]} />
+      <View style={[styles.zigzag]} />
 
-      <View style={[styles.triangle, { top: 100, right: 40 }]} />
-      <View style={[styles.triangleOrange, { bottom: 150, left: 80 }]} />
-      <View style={[styles.orangeRing, { right:20, top: height / 2 }]} />
+      <View style={[styles.triangle]} />
+      <View style={[styles.triangleOrange]} />
+      <View style={[styles.orangeRing]} />
 
       <View style={styles.centerContent}>
         <Image source={require('../image/Messenger-icon.png')} style={styles.logo} />
@@ -68,6 +75,7 @@ const styles = StyleSheet.create({
     height: 180,
     borderRadius: 90,
     backgroundColor:Colors.purple,
+    top: 50, left: -50,
   },
 
   smallCircle: {
@@ -76,6 +84,8 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 100,
     backgroundColor:Colors.smallPurple,
+    bottom: 60, 
+    left: 20 ,
   },
 
   gradientCircle: {
@@ -84,6 +94,8 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 50,
     backgroundColor:Colors.orangeLight,
+    bottom: 30,
+    right: -30 ,
   },
 
   zigzag: {
@@ -92,6 +104,10 @@ const styles = StyleSheet.create({
     height: 4,
     backgroundColor: Colors.zigzag,
     transform: [{ rotate: '45deg' }],
+    top: 300,
+    left: 30 ,
+    bottom: 180,
+    right: 100,
   },
 
   triangle: {
@@ -105,6 +121,8 @@ const styles = StyleSheet.create({
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
     borderBottomColor: Colors.trianglePurple,
+    top: 100,
+    right: 4,
   },
 
   triangleOrange: {
@@ -119,6 +137,8 @@ const styles = StyleSheet.create({
     borderRightColor: 'transparent',
     borderBottomColor: Colors.orange,
     transform: [{ rotate: '10deg' }],
+    bottom: 150,
+    left: 80 ,
   },
 
   orangeRing: {
@@ -129,5 +149,7 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderColor: Colors.ringOrange,
     backgroundColor: 'transparent',
+    right:20,
+    top: height / 2,
   },
 });
