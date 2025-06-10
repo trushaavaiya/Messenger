@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Colors from './constants/colors';
 import Fonts from './constants/fonts';
+import BackupItem from './components/BackupItem';
 
 const BackupRestoreScreen = () => {
   const [isBackingUp, setIsBackingUp] = useState(true);
@@ -18,39 +19,28 @@ const BackupRestoreScreen = () => {
         <Text style={styles.title}>Backup and restore</Text>
       </View>
 
-      <View style={styles.section}>
-        <Icon name="cloud-upload-outline" size={24} color={Colors.buttonText} />
-        <View style={styles.textContainer}>
-          <Text style={styles.heading}>Backing up Messages</Text>
-          <Text style={styles.subtext}>Saving backup....</Text>
-          {isBackingUp && (
-            <View style={styles.progressRow}>
-              <View style={styles.progressBarBackground}>
-                <View style={[styles.progressBarFill, { width: `${progress * 100}%` }]} />
-              </View>
-              <TouchableOpacity onPress={() => setIsBackingUp(false)}>
-                <Icon name="close" size={20} color={Colors.grayTextLight} />
-              </TouchableOpacity>
-            </View>
-          )}
-        </View>
-      </View>
-{/* we should be able to change this part */}
-      <View style={styles.section}>
-        <Icon name="people-outline" size={24} color={Colors.buttonText} />
-        <View style={styles.textContainer}>
-          <Text style={styles.heading}>Last Backup</Text>
-          <Text style={styles.subtext}>Never</Text>
-        </View>
-      </View>
+      {isBackingUp && (
+        <BackupItem
+          icon="cloud-upload-outline"
+          title="Backing up Messages"
+          subtitle="Saving backup...."
+          showProgress={true}
+          progress={progress}
+          onCancel={() => setIsBackingUp(false)}
+        />
+      )}
 
-      <View style={styles.section}>
-        <Icon name="cloud-download-outline" size={24} color={Colors.buttonText} />
-        <View style={styles.textContainer}>
-          <Text style={styles.heading}>Restore</Text>
-          <Text style={styles.subtext}>Select a backup</Text>
-        </View>
-      </View>
+      <BackupItem
+        icon="people-outline"
+        title="Last Backup"
+        subtitle="Never"
+      />
+
+      <BackupItem
+        icon="cloud-download-outline"
+        title="Restore"
+        subtitle="Select a backup"
+      />
 
       <Text style={styles.footerText}>
         Currently, only SMS is supported by backup and restore.{"\n"}
@@ -78,42 +68,6 @@ const styles = StyleSheet.create({
     fontWeight: Fonts.headerFontWeight,
     color: Colors.buttonText,
     marginLeft: 10,
-  },
-  section: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 20,
-    marginTop: 20,
-  },
-  textContainer: {
-    marginLeft: 15,
-    flex: 1,
-  },
-  heading: {
-    fontSize: Fonts.contactNameSize,
-    fontWeight: Fonts.contactNameWeight,
-    color: Colors.buttonText,
-  },
-  subtext: {
-    fontSize: Fonts.contactPhoneSize,
-    color: Colors.lightText,
-  },
-  progressRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 10,
-  },
-  progressBarBackground: {
-    flex: 1,
-    height: 6,
-    backgroundColor: Colors.lightBorder,
-    borderRadius: 4,
-    marginRight: 10,
-  },
-  progressBarFill: {
-    height: 6,
-    backgroundColor: Colors.accentPurple,
-    borderRadius: 4,
   },
   footerText: {
     marginTop: 40,
