@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; 
 
+import SettingSection from './components/SettingSection';
+
 import Fonts from './constants/fonts';
 import Colors from './constants/colors';
 
@@ -18,11 +20,11 @@ const BackupRestoreScreen = () => {
         <Text style={styles.title}>Backup and restore</Text>
       </View>
 
-      <View style={styles.section}>
-        <Icon name="cloud-upload-outline" size={24} color={Colors.text1} />
-        <View style={styles.textContainer}>
-          <Text style={styles.heading}>Backing up Messages</Text>
-          <Text style={styles.subtext}>Saving backup....</Text>
+        <SettingSection
+        iconName="cloud-upload-outline"
+        heading="Backing up Messages"
+        subtext="Saving backup...."
+      >
           {isBackingUp && (
             <View style={styles.progressRow}>
               <View style={styles.progressBarBackground}>
@@ -33,24 +35,19 @@ const BackupRestoreScreen = () => {
               </TouchableOpacity>
             </View>
           )}
-        </View>
-      </View>
-{/* we should be able to change this part */}
-      <View style={styles.section}>
-        <Icon name="people-outline" size={24} color={Colors.text1} />
-        <View style={styles.textContainer}>
-          <Text style={styles.heading}>Last Backup</Text>
-          <Text style={styles.subtext}>Never</Text>
-        </View>
-      </View>
+          </SettingSection>
 
-      <View style={styles.section}>
-        <Icon name="cloud-download-outline" size={24} color={Colors.text1} />
-        <View style={styles.textContainer}>
-          <Text style={styles.heading}>Restore</Text>
-          <Text style={styles.subtext}>Select a backup</Text>
-        </View>
-      </View>
+       <SettingSection
+        iconName="people-outline"
+        heading="Last Backup"
+        subtext="Never"
+      />
+
+      <SettingSection
+        iconName="cloud-download-outline"
+        heading="Restore"
+        subtext="Select a backup"
+      />
 
       <Text style={styles.footerText}>
         Currently, only SMS is supported by backup and restore.{"\n"}
