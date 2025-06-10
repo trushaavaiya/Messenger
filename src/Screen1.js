@@ -13,7 +13,7 @@ import Fonts from './constants/fonts' ;
 
 const { width, height } = Dimensions.get('window');
 
-export default function Screen1() {
+export default function Screen1({navigation}) {
   return (
         <View style={styles.container}>
         <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
@@ -25,9 +25,7 @@ export default function Screen1() {
             <View style={[styles.zigzagSmall, { bottom: 160, right: 60 }]} />
             <View style={[styles.circleGradient, { bottom: 90, right: -10 }]} />
             <View style={[styles.orangeRing, { right:20, top: height / 2 }]} />
-            
 
-      
       <View style={styles.content}>
         <Image
           source={require('../image/Messenger-icon.png')}
@@ -43,9 +41,8 @@ export default function Screen1() {
         </Text>
       </View>
 
-      
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() =>navigation.navigate('Screen2')}>
           <Text style={styles.buttonText}>Give Me Permission</Text>
         </TouchableOpacity>
       </View>
