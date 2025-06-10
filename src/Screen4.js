@@ -24,7 +24,7 @@ const messagesData = [
   { id: '6', text: 'Hello.! Good morning!', sender: 'me' },
 ];
 
-export default function ChatScreen() {
+export default function ChatScreen({navigation,route}) {
   const [messages, setMessages] = useState(messagesData);
   const [input, setInput] = useState('');
   const { width } = useWindowDimensions();
@@ -45,16 +45,19 @@ export default function ChatScreen() {
       </Text>
     </View>
   );
+  const { contactName } = route.params;
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity>
-            <Icon name="chevron-back" size={Fonts.size} color={Colors.text} />
+            <Icon name="chevron-back" size={Fonts.size} color={Colors.text} onPress={() => {
+          navigation.navigate('Screen5');
+        }} />
         </TouchableOpacity>
 
         <View style={styles.headerTitleContainer}>
-             <Text style={styles.headerTitle}>Aajaybhai</Text>
+             <Text style={styles.headerTitle}>{contactName}</Text>
         </View>
 
         <TouchableOpacity>
@@ -191,57 +194,51 @@ const styles = StyleSheet.create({
   },
 
   messageInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderTopWidth: 1,
-    borderTopColor: Colors.borderline,
-  },
-  addButton: {
-    padding: 6,
-    marginRight: 6,
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: Colors.addicon,
-    alignItems: 'center',
-    backgroundColor: '#f2f2f2',
-    borderRadius: 20,
-    flex: 1,
-    marginRight: 8,
-    paddingHorizontal: 12,
-    borderRadius:15,
-  },
+  flexDirection: 'row',
+  alignItems: 'center',
+  backgroundColor: Colors.background,
+  marginHorizontal: 12,
+  marginBottom: 10,
+  borderRadius: 30,
+  paddingHorizontal: 16,
+  paddingVertical: 10,
+
+},
+
+addButton: {
+  marginRight: 10,
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 28,
+  height: 28,
+  borderRadius: 14,
+  backgroundColor: Colors.back,
+  borderColor: Colors.addicon,
+  borderWidth: 1,
+},
   addInsideIcon: {
     marginRight: 8,
   },
-  messageInput: {
-    flex: 1,
-    fontSize: 16,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    borderRadius: 20,
-    backgroundColor: Colors.back,
-    marginRight: -45,
-
-  },
-  sendButton: {
-    backgroundColor:Colors.addicon,
-    borderRadius: 1,
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderEndEndRadius:20,
-    borderBottomLeftRadius:20,
-    borderStartStartRadius:20,
-    //borderEndStartRadius:20,
-    //borderTopRightRadius:20,
-    // eslint-disable-next-line no-dupe-keys
-    borderBottomLeftRadius:20,
-    paddingRight:0,
-    transform: [{rotate: '-45deg'}],
-  },
+ messageInput: {
+  flex: 1,
+  fontSize: 16,
+  paddingVertical: 8,
+  paddingHorizontal: 16,
+  backgroundColor: Colors.back,
+  borderRadius: 20,
+  color: Colors.text,
+},
+  
+sendButton: {
+  marginLeft: 10,
+  backgroundColor: Colors.addicon,
+  width: 40,
+  height: 40,
+  borderRadius: 20,
+  alignItems: 'center',
+  justifyContent: 'center',
+  transform: [{ rotate: '-45deg' }],
+},
   inputContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -257,7 +254,7 @@ const styles = StyleSheet.create({
   },
   iconLabel: {
     fontSize: 10,
-    color: '#fff',
+    color: Colors.background,
     marginTop: 4,
   },
   iconButtonActive: {
