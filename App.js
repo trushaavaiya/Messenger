@@ -29,7 +29,7 @@ import {
 // import Screen13 from './src/Screen13';
 // import Screen14 from './src/Screen14';
 // import Screen15 from './src/Screen15';
-import Screen16 from './src/Screen16';
+// import Screen16 from './src/Screen16';
 // import Screen12 from './src/Screen12';
 // import Screen13 from './src/Screen13';
 // import Screen11 from './src/Screen11';
@@ -44,7 +44,7 @@ import Screen16 from './src/Screen16';
 // import Screen20 from './src/Screen20';
 // import Screen21 from './src/Screen21';
 // import Screen22 from './src/Screen22';
-// import Screen23 from './src/Screen23';
+import Screen23 from './src/Screen23';
 // import Screen24 from './src/Screen24';
 
 
@@ -60,7 +60,7 @@ function App() {
       {/* <Screen1/> */}
       {/* <Screen2/> */}
       {/* <Screen3/> */}
-      {/* <Screen4/> */}
+      {/* <Screen4 /> */}
       {/* <Screen5/> */}
       {/* <Screen6/> */}
       {/* <Screen7/> */}
@@ -72,14 +72,14 @@ function App() {
       {/* <Screen13/> */}
       {/* <Screen14/> */}
       {/* <Screen15/> */}
-      <Screen16/> 
+      {/* <Screen16/>  */}
       {/* <Screen16/>  */}
        {/* <Screen17/>  */}
        {/* <Screen18/>  */}
        {/* <Screen19/>  */}
        {/* <Screen20/>  */}
        {/* <Screen21/>  */}
-       {/* <Screen23/>  */}
+       <Screen23/> 
        {/* <Screen24/>  */}
     </View>
     </GestureHandlerRootView>
