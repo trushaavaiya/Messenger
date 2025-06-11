@@ -32,7 +32,7 @@ export default function App() {
         <Stack.Screen name="Screen9" component={MessageApp} />
         <Stack.Screen name="Screen10" component={MessageApp1} />
         <Stack.Screen name="Screen11" component={SettingsScreen} />
-        <Stack.Screen name="Screen12" component={BackupRestoreScreen} />
+        <Stack.Screen name="Screen12" component={BackupRestoreScreen} />  
       </Stack.Navigator>
     </NavigationContainer>
     </GestureHandlerRootView>
