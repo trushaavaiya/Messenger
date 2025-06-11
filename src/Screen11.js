@@ -13,14 +13,14 @@ import SettingRowTextOnly from './components/SettingRowTextOnly';
 import Colors from './constants/colors';
 import Fonts from './constants/fonts';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({navigation}) => {
   const [pureBlackMode, setPureBlackMode] = useState(false);
   const [useSystemFont, setUseSystemFont] = useState(true);
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('Screen12')}>
           <Icon name="chevron-left" size={Fonts.size} color={Colors.headerText} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Settings</Text>

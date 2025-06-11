@@ -24,7 +24,7 @@ const messages = [
   { name: 'Sarah Kate', message: 'okay. let’s hang out the day after the...', date: '04, Dec', avatar: 'https://randomuser.me/api/portraits/women/1.jpg' },
 ];
 
-const MessageApp1 = () => {
+const MessageApp1 = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(true);
   const [rating, setRating] = useState(4);
 
@@ -110,7 +110,12 @@ const MessageApp1 = () => {
               <TouchableOpacity style={styles.rateButton} onPress={() => setModalVisible(false)}>
                 <Text style={styles.rateButtonText}>RATE US</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => setModalVisible(false)}>
+              <TouchableOpacity
+              onPress={() => {
+              setModalVisible(false);
+              navigation.navigate('Screen11');
+              }}
+              >
                 <Text style={styles.notNowText}>NOT NOW</Text>
               </TouchableOpacity>
             </View>
