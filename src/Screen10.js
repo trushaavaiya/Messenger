@@ -24,7 +24,7 @@ const messages = [
   { name: 'Sarah Kate', message: 'okay. let’s hang out the day after the...', date: '04, Dec', avatar: 'https://randomuser.me/api/portraits/women/1.jpg' },
 ];
 
-const MessageApp = () => {
+const MessageApp1 = () => {
   const [modalVisible, setModalVisible] = useState(true);
   const [rating, setRating] = useState(4);
 
@@ -121,7 +121,7 @@ const MessageApp = () => {
   );
 };
 
-export default MessageApp;
+export default MessageApp1;
 
 const styles = StyleSheet.create({
   container: {
