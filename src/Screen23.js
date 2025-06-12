@@ -14,14 +14,14 @@ import SettingItem from './components/SettingItem';
 import Colors from './constants/colors';
 import Fonts from './constants/fonts';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({navigation}) => {
   const [pureBlackMode, setPureBlackMode] = useState(false);
   const [useSystemFont, setUseSystemFont] = useState(true);
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Screen24')}>
           <Ionicons name="chevron-back" size={28} color={Colors.buttonText} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Settings</Text>
@@ -29,7 +29,6 @@ const SettingsScreen = () => {
 
       <Text style={styles.sectionHeader}>Appearance</Text>
 
-{/* we should be able to change this part */}
 
       <SettingItem icon="gavel" title="Night Mode" subtitle="System" />
 
