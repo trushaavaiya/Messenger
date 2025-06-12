@@ -72,7 +72,7 @@ const MessageItem = ({ item }) => (
   </TouchableOpacity>
 );
 
-export default function App() {
+export default function App({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={[Colors.primary, Colors.purple]} style={styles.container}>
@@ -82,7 +82,9 @@ export default function App() {
             <View style={styles.ghostSidebar} />
             <View style={styles.messagesPanel}>
               <View style={styles.topBar}>
+                <TouchableOpacity onPress={() => navigation.navigate('Screen15')}>
                 <Text style={styles.hamburgerIcon}>☰</Text>
+                </TouchableOpacity>
               </View>
               <View style={styles.searchBar}>
                 <Text style={styles.searchIcon}>🔍</Text>
