@@ -13,6 +13,10 @@ import MessageApp from './src/Screen9';
 import MessageApp1 from './src/Screen10';
 import SettingsScreen from './src/Screen11';
 import BackupRestoreScreen from './src/Screen12';
+import Screen13 from './src/Screen13';
+import Screen14 from './src/Screen14';
+import Screen15 from './src/Screen15';
+
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 const Stack = createNativeStackNavigator();
@@ -32,7 +36,10 @@ export default function App() {
         <Stack.Screen name="Screen9" component={MessageApp} />
         <Stack.Screen name="Screen10" component={MessageApp1} />
         <Stack.Screen name="Screen11" component={SettingsScreen} />
-        <Stack.Screen name="Screen12" component={BackupRestoreScreen} />  
+        <Stack.Screen name="Screen12" component={BackupRestoreScreen} />
+        <Stack.Screen name="Screen13" component={Screen13} />
+        <Stack.Screen name="Screen14" component={Screen14} />
+        <Stack.Screen name="Screen15" component={Screen15} />
       </Stack.Navigator>
     </NavigationContainer>
     </GestureHandlerRootView>

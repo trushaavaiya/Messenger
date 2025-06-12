@@ -7,14 +7,14 @@ import SettingSection from './components/SettingSection';
 import Fonts from './constants/fonts';
 import Colors from './constants/colors';
 
-const BackupRestoreScreen = () => {
+const BackupRestoreScreen = ({navigation}) => {
   const [isBackingUp, setIsBackingUp] = useState(true);
   const [progress, setProgress] = useState(0.4);
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('Screen13')}>
           <Icon name="chevron-back" size={26} color={Colors.text1} />
         </TouchableOpacity>
         <Text style={styles.title}>Backup and restore</Text>
