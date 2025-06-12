@@ -71,7 +71,7 @@ const initialMessages = [
   },
 ];
 
-const MessagesScreen = () => {
+const MessagesScreen = ({navigation}) => {
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === 'dark';
 
@@ -127,6 +127,8 @@ const MessagesScreen = () => {
   );
 
   const renderItem = ({ item }) => (
+      <TouchableOpacity onPress={() => navigation.navigate('Screen19', { name: item.name })}>
+
     <Swipeable
       ref={(ref) => {
         if (ref && item.id) {
@@ -170,6 +172,7 @@ const MessagesScreen = () => {
         </View>
       </View>
     </Swipeable>
+    </TouchableOpacity>
   );
 
   return (
