@@ -24,7 +24,9 @@ const messagesData = [
   { id: '7', text: 'Hello.! Good morning!', sender: 'me', date: 'Today' },
 ];
 
-const ChatScreen = () => {
+const ChatScreen = ({route,navigation}) => {
+    const { name } = route.params;
+
   const [input, setInput] = useState('');
 
   const renderItem = ({ item, index }) => {
@@ -77,10 +79,10 @@ const ChatScreen = () => {
         </TouchableOpacity>
 
         <View style={styles.nameBox}>
-          <Text style={styles.title}>Aajaybhai</Text>
+          <Text style={styles.title}>{name}</Text>
         </View>
 
-        <TouchableOpacity style={styles.avtar}>
+        <TouchableOpacity style={styles.avtar} onPress={() => navigation.navigate('Screen20')}>
           <Icon name="person" size={24} color={Colors.buttonText} />
         </TouchableOpacity>
       </View>

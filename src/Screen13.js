@@ -20,7 +20,7 @@ const menuItems = [
   { title: 'Spam' },
   { title: 'Blocked List' },
   { title: 'Scheduled Message' },
-  { title: 'Light Mode' },
+  { title: 'Dark Mode' },
   { title: 'Settings' },
   { title: 'Send Feedback' },
 ];
@@ -35,7 +35,8 @@ const messages = [
   { id: '7', name: 'Julia Ambriz', text: 'Send me all pics in last party', avatar: 'https://randomuser.me/api/portraits/women/5.jpg' },
 ];
 
-const Sidebar = () => (
+// 👇 Sidebar updated to accept navigation prop
+const Sidebar = ({ navigation }) => (
   <LinearGradient colors={[Colors.primary1, Colors.purple]} style={styles.sidebar}>
     <View style={styles.logoContainer}>
       <Text style={styles.logo}>💬</Text>
@@ -50,7 +51,16 @@ const Sidebar = () => (
     <View style={styles.divider} />
     <View>
       {menuItems.slice(5).map((item) => (
-        <Text key={item.title} style={styles.menuItem}>{item.title}</Text>
+        <TouchableOpacity
+          key={item.title}
+          onPress={() => {
+            if (item.title === 'Dark Mode') {
+              navigation.navigate('Screen14');
+            }
+          }}
+        >
+          <Text style={styles.menuItem}>{item.title}</Text>
+        </TouchableOpacity>
       ))}
     </View>
   </LinearGradient>
@@ -72,12 +82,13 @@ const MessageItem = ({ item }) => (
   </TouchableOpacity>
 );
 
-export default function App() {
+// 👇 Updated name: Screen13, accepts navigation prop
+export default function Screen13({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={[Colors.primary1, Colors.purple]} style={styles.container}>
         <View style={styles.mainContainer}>
-          <Sidebar />
+          <Sidebar navigation={navigation} />
           <View style={styles.rightSideContainer}>
             <View style={styles.ghostSidebar} />
             <View style={styles.messagesPanel}>
@@ -111,6 +122,7 @@ export default function App() {
   );
 }
 
+// Styles remain unchanged
 const styles = StyleSheet.create({
   container: { flex: 1 },
   mainContainer: { flexDirection: 'row', flex: 1 },

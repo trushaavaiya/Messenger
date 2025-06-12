@@ -76,7 +76,7 @@ const data = [
 
 const tabs = ['All Messages', 'Personal', 'Business'];
 
-const ChatListScreen = () => {
+const ChatListScreen = ({navigation}) => {
   const [search, setSearch] = useState('');
   const [activeTab, setActiveTab] = useState('All Messages');
   const { height } = useWindowDimensions();
@@ -147,7 +147,7 @@ const ChatListScreen = () => {
         <TouchableOpacity>
           <Icon name="menu-outline" size={Fonts.titleSize} color={Colors.accentPurple} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() =>navigation.navigate('Screen21')}>
           <Icon name="add-outline" size={Fonts.titleSize} color={Colors.accentPurple} />
         </TouchableOpacity>
       </View>

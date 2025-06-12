@@ -8,6 +8,8 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  SafeAreaView,
+  useWindowDimensions,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -50,181 +52,228 @@ const messagesData = [
   },
 ];
 
-const ChatScreen = () => {
+const ChatScreen1 = ({ route, navigation }) => {
+  const { name } = route.params;
+  const { width } = useWindowDimensions();
+
+  const [messages, setMessages] = useState(messagesData);
   const [input, setInput] = useState('');
 
-  const renderItem = ({ item, index }) => {
-    const showDate =
-      index === 0 || item.date !== messagesData[index - 1].date;
+  const messagesBeforeToday = messages.filter(m => m.date !== 'Today');
+  const todayMessages = messages.filter(m => m.date === 'Today');
 
-    return (
-      <View>
-        {showDate && (
-          <View style={styles.dateSeparator}>
-            <View style={styles.separatorLine} />
-            <Text style={styles.dateText}>{item.date}</Text>
-            <View style={styles.separatorLine} />
-          </View>
-        )}
-
-        <View
-          style={[
-            styles.messageContainer,
-            item.sender === 'me' ? styles.rightAlign : styles.leftAlign,
-          ]}
+  const renderItem = ({ item }) => (
+    <View
+      style={[
+        styles.messageContainer,
+        item.sender === 'me' ? styles.messageRight : styles.messageLeft,
+        { maxWidth: width * 0.75 },
+      ]}
+    >
+      {item.sender === 'me' ? (
+        <LinearGradient
+          colors={[Colors.primary, Colors.addicon]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.sentBubbleGradient}
         >
-          {item.sender === 'me' ? (
-            <LinearGradient
-              colors={[Colors.primary, Colors.addicon]}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.sentBubble}
-            >
-              <Text style={styles.sentText}>{item.text}</Text>
-            </LinearGradient>
-          ) : (
-            <View style={styles.receivedBubble}>
-              <Text style={styles.receivedText}>{item.text}</Text>
-            </View>
-          )}
+          <Text style={[styles.messageText, styles.messageTextRight]}>{item.text}</Text>
+        </LinearGradient>
+      ) : (
+        <View style={styles.messageLeftBubble}>
+          <Text style={styles.messageText}>{item.text}</Text>
         </View>
-      </View>
-    );
-  };
+      )}
+    </View>
+  );
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'android' ? 'padding' : null}
-      keyboardVerticalOffset={80}
-    >
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => {
-            // Add back navigation logic here
-          }}
-        >
-          <Icon name="chevron-back" size={28} color={Colors.text1} />
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Icon name="chevron-back" size={Fonts.size} color={Colors.text}  onPress={() => {
+          navigation.navigate('Screen8');
+        }} />
         </TouchableOpacity>
-        <View style={styles.nameBox}>
-          <Text style={styles.title}>Aajaybhai</Text>
+
+        <View style={styles.headerTitleContainer}>
+          <Text style={styles.headerTitle}>{name}</Text>
         </View>
-        <Icon name="person-outline" size={20} color={Colors.text1} />
+
+        <TouchableOpacity>
+          <Icon name="person-outline" size={Fonts.size} color={Colors.text} />
+        </TouchableOpacity>
       </View>
 
       <FlatList
-        data={messagesData}
-        renderItem={renderItem}
+        data={messagesBeforeToday}
         keyExtractor={(item) => item.id}
-        contentContainerStyle={{ padding: 16 }}
+        renderItem={renderItem}
+        contentContainerStyle={{ padding: 10, paddingBottom: 10 }}
+        inverted={false}
       />
 
-      <View style={styles.inputContainer}>
-        <TouchableOpacity>
-          <Icon name="add-outline" size={Fonts.size} color={Colors.addicon} />
-        </TouchableOpacity>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Type your message here"
-          placeholderTextColor={Colors.searchIcon}
-          value={input}
-          onChangeText={setInput}
-        />
-        <TouchableOpacity>
-          <Icon name="send" size={22} color={Colors.addicon} />
-        </TouchableOpacity>
+      <View style={styles.dateSeparator}>
+        <View style={styles.line} />
+        <Text style={styles.dateText}>Today</Text>
+        <View style={styles.line} />
       </View>
-    </KeyboardAvoidingView>
+
+      <FlatList
+        data={todayMessages}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: 20 }}
+        inverted={false}
+      />
+
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'android' ? 'padding' : 'height'}
+        keyboardVerticalOffset={80}
+      >
+        <View style={styles.messageInputContainer}>
+          <TouchableOpacity style={styles.addButton}>
+            <Icon name="add" size={Fonts.size} color={Colors.addicon} />
+          </TouchableOpacity>
+          <TextInput
+            style={styles.messageInput}
+            placeholder="Type your message here"
+            placeholderTextColor={Colors.searchIcon}
+            value={input}
+            onChangeText={setInput}
+          />
+          <TouchableOpacity style={styles.sendButton}>
+            <Icon name="send" size={22} color={Colors.background} />
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
+
+      
+    </SafeAreaView>
   );
 };
 
-export default ChatScreen;
+export default ChatScreen1;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
- 
-  nameBox: {
-    backgroundColor: Colors.placeholderBg,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 10,
-  },
-  backButton: {
-    marginRight: 12,
-    padding: 4,
-  },
-  title: {
-    fontSize: Fonts.headerFontSize,
-    fontWeight: Fonts.headerFontWeight,
-    color: Colors.text1,
-  },
-  messageContainer: {
-    marginVertical: 10,
+  container: { flex: 1, backgroundColor: Colors.background },
+
+  header: {
+    height: 60,
     flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    justifyContent: 'space-between',
+    borderBottomWidth: 0.5,
+    borderBottomColor: Colors.checkboxUnselected,
   },
-  leftAlign: {
+  headerTitleContainer: {
+    backgroundColor: Colors.checkboxUnselected,
+    paddingHorizontal: 26,
+    paddingVertical: 6,
+    borderRadius: 15,
     justifyContent: 'flex-start',
+    alignItems: 'flex-start',
   },
-  rightAlign: {
-    justifyContent: 'flex-end',
-  },
-  sentBubble: {
-    padding: 12,
-    borderRadius: 18,
-    maxWidth: '80%',
-    borderBottomRightRadius: 0,
-  },
-  sentText: {
-    color: Colors.buttonText,
-    fontSize: Fonts.subtitleSize,
-  },
-  receivedBubble: {
-    backgroundColor: Colors.searchbg,
-    padding: 12,
-    borderRadius: 18,
-    maxWidth: '80%',
-    borderBottomLeftRadius: 0,
-  },
-  receivedText: {
-    fontSize: Fonts.subtitleSize,
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
     color: Colors.text,
   },
+
+  messageContainer: {
+    marginVertical: 5,
+    borderRadius: 20,
+  },
+  messageLeft: {
+    alignSelf: 'flex-start',
+    marginVertical: 15,
+  },
+  messageRight: {
+    alignSelf: 'flex-end',
+    marginVertical: 15,
+  },
+
+  sentBubbleGradient: {
+    padding: 12,
+    borderRadius: 20,
+    borderTopRightRadius: 0,
+  },
+
+  messageLeftBubble: {
+    backgroundColor: Colors.back,
+    padding: 12,
+    borderRadius: 20,
+    borderTopLeftRadius: 0,
+  },
+
+  messageText: {
+    fontSize: 16,
+    color: Colors.text,
+  },
+  messageTextRight: {
+    color: 'white',
+  },
+
   dateSeparator: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 16,
-    justifyContent: 'center',
+    marginHorizontal: 20,
+    marginVertical: 10,
   },
-  separatorLine: {
-    height: 1,
-    backgroundColor: Colors.borderline,
+  line: {
     flex: 1,
-    marginHorizontal: 10,
+    height: 1,
+    backgroundColor: Colors.checkboxUnselected,
   },
   dateText: {
+    marginHorizontal: 8,
     color: Colors.subtitle1,
-    fontSize: 12,
+    fontWeight: '600',
   },
- messageInputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+
+  messageInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.background,
+    marginHorizontal: 12,
+    marginBottom: 10,
+    borderRadius: 30,
     paddingHorizontal: 16,
-    paddingVertical: 20,
-    borderTopWidth: 0,
-    borderTopColor: Colors.border,
-    gap: 8,
+    paddingVertical: 10,
   },
-  textInput: {
+
+  addButton: {
+    marginRight: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: Colors.back,
+    borderColor: Colors.addicon,
+    borderWidth: 1,
+  },
+
+  messageInput: {
     flex: 1,
-    backgroundColor: Colors.searchbg,
+    fontSize: 16,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: Colors.back,
     borderRadius: 20,
-    paddingHorizontal: 28,
-    fontSize: Fonts.subtitleSize,
-    height: 40,
-    color: Colors.text1,
+    color: Colors.text,
   },
+
+  sendButton: {
+    marginLeft: 10,
+    backgroundColor: Colors.addicon,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    transform: [{ rotate: '-45deg' }],
+  },
+
 });

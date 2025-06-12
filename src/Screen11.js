@@ -8,18 +8,19 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import SettingRowTextOnly from './components/SettingRowTextOnly';
 
 import Colors from './constants/colors';
 import Fonts from './constants/fonts';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({navigation}) => {
   const [pureBlackMode, setPureBlackMode] = useState(false);
   const [useSystemFont, setUseSystemFont] = useState(true);
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('Screen12')}>
           <Icon name="chevron-left" size={Fonts.size} color={Colors.headerText} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Settings</Text>
@@ -27,13 +28,11 @@ const SettingsScreen = () => {
 
       <Text style={styles.sectionHeader}>Appearance</Text>
 
-      <View style={styles.settingRow}>
-        <Icon name="gavel" size={22} color={Colors.inactiveTab} style={styles.icon} />
-        <View style={styles.settingTextContainer}>
-          <Text style={styles.settingTitle}>Night Mode</Text>
-          <Text style={styles.settingSubtitle}>System</Text>
-        </View>
-      </View>
+      <SettingRowTextOnly
+        iconName="gavel"
+        title="Night Mode"
+        subtitle="System"
+      />
 
       <View style={styles.settingRow}>
         <Icon name="weather-night" size={22} color={Colors.inactiveTab} style={styles.icon} />
@@ -48,13 +47,12 @@ const SettingsScreen = () => {
         />
       </View>
 
-      <View style={styles.settingRow}>
-        <Icon name="format-size" size={22} color={Colors.inactiveTab} style={styles.icon} />
-        <View style={styles.settingTextContainer}>
-          <Text style={styles.settingTitle}>Font size</Text>
-          <Text style={styles.settingSubtitle}>Normal</Text>
-        </View>
-      </View>
+
+      <SettingRowTextOnly
+        iconName="format-size"
+        title="Font size"
+        subtitle="Normal"
+      />
 
       <View style={styles.settingRow}>
         <Icon name="format-text" size={22} color={Colors.inactiveTab} style={styles.icon} />
@@ -78,23 +76,16 @@ const SettingsScreen = () => {
         </View>
       </View>
 
-      <View style={styles.settingRow}>
-        <Icon name="timer-outline" size={22} color={Colors.inactiveTab} style={styles.icon} />
-        <View style={styles.settingTextContainer}>
-          <Text style={styles.settingTitle}>Delayed Sending</Text>
-          <Text style={styles.settingSubtitle}>No delay</Text>
-        </View>
-      </View>
-
-      <View style={styles.settingRow}>
-        <Icon name="gesture-swipe-horizontal" size={22} color={Colors.inactiveTab} style={styles.icon} />
-        <View style={styles.settingTextContainer}>
-          <Text style={styles.settingTitle}>Swipe actions</Text>
-          <Text style={styles.settingSubtitle}>
-            Configure swipe actions for conversations
-          </Text>
-        </View>
-      </View>
+      <SettingRowTextOnly
+        iconName="timer-outline"
+        title="Delayed Sending"
+        subtitle="No delay"
+      />
+      <SettingRowTextOnly
+        iconName="gesture-swipe-horizontal"
+        title="Swipe actions"
+        subtitle="Configure swipe actions for conversations"
+      />
     </ScrollView>
   );
 };

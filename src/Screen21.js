@@ -19,7 +19,7 @@ const messages = [
   { id: 5, name: 'Sarah Kate', message: 'okay. let’s hang out the day after the...', date: '04, Dec', avatar: 'https://randomuser.me/api/portraits/women/1.jpg' },
 ];
 
-const MessageApp = () => {
+const MessageApp = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -52,7 +52,7 @@ const MessageApp = () => {
         <Text style={styles.bannerTitle}>Love to Message?</Text>
         <Text style={styles.bannerSubtitle}>Make SMS app to your default SMS app</Text>
         <View style={styles.bannerButtons}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Screen22')}>
             <Text style={styles.changeButton}>CHANGE</Text>
           </TouchableOpacity>
           <TouchableOpacity>

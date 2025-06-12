@@ -65,7 +65,7 @@ const contactsData = [
   },
 ];
 
-export default function ContactScreen() {
+export default function ContactScreen({navigation}) {
   const [selectedContacts, setSelectedContacts] = useState([]);
 
   const toggleSelect = (id) => {
@@ -82,7 +82,10 @@ export default function ContactScreen() {
     return (
       <TouchableOpacity
         style={styles.contactRow}
-        onPress={() => toggleSelect(item.id)}
+        onPress={() => {
+          toggleSelect(item.id);
+          navigation.navigate('Screen4', { contactName: item.name });
+        }}
       >
         {item.image ? (
           <Image source={item.image} style={styles.avatar} />
@@ -111,7 +114,10 @@ export default function ContactScreen() {
       <StatusBar backgroundColor={Colors.background} barStyle="dark-content" />
       
       <View style={styles.header}>
-        <Icon name="arrow-back-ios" size={22} color={Colors.text1} />
+        <Icon name="arrow-back-ios" size={22} color={Colors.text1}  onPress={() => {
+          
+          navigation.navigate('Screen2');
+        }}/>
         <Text style={styles.headerText}>Contacts</Text>
         <Icon name="check" size={24} color={Colors.primary1} />
       </View>
@@ -132,6 +138,7 @@ export default function ContactScreen() {
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         contentContainerStyle={{ paddingBottom: 20 }}
+        
       />
     </View>
   );

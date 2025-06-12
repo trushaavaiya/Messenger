@@ -10,6 +10,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import AttachmentButton from "./components/AttachmentButton";
 
 import Colors from "./constants/colors";
 import Fonts from "./constants/fonts";
@@ -23,7 +24,7 @@ const messagesData = [
   { id: "6", text: "Hello.! Good morning!", sender: "me" },
 ];
 
-export default function ChatScreen() {
+export default function ChatScreen({navigation}) {
   const [messages, setMessages] = useState(messagesData);
   const [input, setInput] = useState("");
   const { width } = useWindowDimensions();
@@ -49,7 +50,7 @@ export default function ChatScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.backWithTitle}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Screen17')}>
             <Icon name="chevron-back" size={28} color={Colors.buttonText} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Aajaybhai</Text>
@@ -98,32 +99,13 @@ export default function ChatScreen() {
         </View>
       </View>
 
-      <View style={styles.inputContainer}>
-        <TouchableOpacity style={styles.iconButton}>
-          <Icon name="camera-outline" size={28} color={Colors.buttonText} />
-          <Text style={styles.iconLabel}>Camera</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={[styles.iconButton, styles.iconButtonActive]}>
-          <Icon name="image-outline" size={28} color={Colors.buttonText} />
-          <Text style={[styles.iconLabel, { color: Colors.buttonText }]}>Gallery</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.iconButton}>
-          <Icon name="person-outline" size={28} color={Colors.buttonText} />
-          <Text style={styles.iconLabel}>Contact</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.iconButton}>
-          <Icon name="calendar-outline" size={28} color={Colors.buttonText} />
-          <Text style={styles.iconLabel}>Schedule</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.iconButton}>
-          <Icon name="location-outline" size={28} color={Colors.buttonText} />
-          <Text style={styles.iconLabel}>Location</Text>
-        </TouchableOpacity>
-      </View>
+  <View style={styles.inputContainer}>
+  <AttachmentButton iconName="camera-outline" label="Camera" />
+  <AttachmentButton iconName="image-outline" label="Gallery" active />
+  <AttachmentButton iconName="person-outline" label="Contact" />
+  <AttachmentButton iconName="calendar-outline" label="Schedule" />
+  <AttachmentButton iconName="location-outline" label="Location" />
+  </View>
     </SafeAreaView>
   );
 }
