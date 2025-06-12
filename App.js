@@ -16,6 +16,15 @@ import BackupRestoreScreen from './src/Screen12';
 import Screen13 from './src/Screen13';
 import Screen14 from './src/Screen14';
 import Screen15 from './src/Screen15';
+import Screen16 from './src/Screen16';
+import Screen17 from './src/Screen17';
+import Screen18 from './src/Screen18';
+import Screen19 from './src/Screen19';
+import Screen20 from './src/Screen20';
+import Screen21 from './src/Screen21';
+import Screen22 from './src/Screen22';
+import Screen23 from './src/Screen23';
+import Screen24 from './src/Screen24';
 
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -40,6 +49,15 @@ export default function App() {
         <Stack.Screen name="Screen13" component={Screen13} />
         <Stack.Screen name="Screen14" component={Screen14} />
         <Stack.Screen name="Screen15" component={Screen15} />
+        <Stack.Screen name="Screen16" component={Screen16} />
+        <Stack.Screen name="Screen17" component={Screen17} />
+        <Stack.Screen name="Screen18" component={Screen18} />
+        <Stack.Screen name="Screen19" component={Screen19} />
+        <Stack.Screen name="Screen20" component={Screen20} />
+        <Stack.Screen name="Screen21" component={Screen21} />
+        <Stack.Screen name="Screen22" component={Screen22} />
+        <Stack.Screen name="Screen23" component={Screen23} />
+        <Stack.Screen name="Screen24" component={Screen24} />
       </Stack.Navigator>
     </NavigationContainer>
     </GestureHandlerRootView>

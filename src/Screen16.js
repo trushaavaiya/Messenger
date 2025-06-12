@@ -24,7 +24,7 @@ const messagesData = [
   { id: "6", text: "Hello.! Good morning!", sender: "me" },
 ];
 
-export default function ChatScreen() {
+export default function ChatScreen({navigation}) {
   const [messages, setMessages] = useState(messagesData);
   const [input, setInput] = useState("");
   const { width } = useWindowDimensions();
@@ -50,7 +50,7 @@ export default function ChatScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.backWithTitle}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Screen17')}>
             <Icon name="chevron-back" size={28} color={Colors.buttonText} />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Aajaybhai</Text>

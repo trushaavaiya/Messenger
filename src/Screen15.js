@@ -25,7 +25,7 @@ const contactsData = [
   { id: '8', name: 'Ketan pandia', phone: '+91 78999 70000', image: null },
 ];
 
-export default function ContactScreen() {
+export default function ContactScreen({navigation}) {
   const [selectedContacts, setSelectedContacts] = useState([]);
 
   const toggleSelect = (id) => {
@@ -66,7 +66,9 @@ export default function ContactScreen() {
       <View style={styles.header}>
         <Icon name="arrow-back-ios" size={22} color={Colors.buttonText} />
         <Text style={styles.headerText}>Contacts</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Screen16')}>
         <Icon name="check" size={24} color={Colors.primary1} />
+        </TouchableOpacity>
       </View>
       <View style={styles.searchBox}>
         <Icon name="search" size={20} color={Colors.searchIcon} />
